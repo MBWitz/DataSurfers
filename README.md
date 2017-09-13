@@ -2,9 +2,9 @@
 Project Team ISQA8086
 
 ## Members:
-Molly 
-Srinivas
-Anuja
+1. Molly 
+2. Srinivas
+3. Anuja
 
 ## Data Set Picks, and questions or issues that can be addressed:
 1. Air Quality and Greenhouse Gas Emissions
