@@ -32,7 +32,10 @@
 
 
 ### 2. Draft Research Questions
-  1.
+  1. We assume that the greenhouse gases amount in the atmosphere is increasing.
+  2. Considering the amount of GHG emission in data set, we assume that USA, Great Britain , Canada are countries which are more prone        climate change.
+  3. We assume that GDP and population are directly proportional to GHG emission.
+  4. 
 
 
 
