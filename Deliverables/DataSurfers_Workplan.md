@@ -10,30 +10,30 @@
 
 
 
-### Introduction
+### 1. Introduction
 
 
 
-### Draft Research Questions
+### 2. Draft Research Questions
 
 
 
 
-### Work Plan
+### 3. Work Plan
 
 1. Work plan and Drafting Research Questions - Week 5 
 2. Data Cleaning documentation draft - Week 7
 3. Team Progress meeting - Week 9
 4. R script Draft - week 10
 5. R Plot Draft - Week 12
-6. Audience Personnal - Week 14
+6. Audience Persona - Week 14
 7. Presentation - Week 15
 8. Git Package - Weeek 15
 
 
-### Project Effort Allocation
+### 4. Project Effort Allocation
 
 
 
-### Target Audience
+### 5. Target Audience
 
