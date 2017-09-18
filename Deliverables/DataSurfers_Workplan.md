@@ -1,4 +1,4 @@
-##### This markdown document is about work plan to analyze the dataset 
+##### This markdown document contains our work plan to analyze the dataset 
 
 ### Contents
 
