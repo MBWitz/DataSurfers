@@ -1,6 +1,6 @@
-##### This markdown document contains our work plan to analyze the dataset 
+# Air and GHG Emissions
 
-### Contents
+## Contents
 
 1. Introduction
 2. Draft Research Questions
@@ -10,7 +10,7 @@
 
 
 
-### 1. Introduction
+## 1. Introduction
      
    Greenhouse gases refer to the sum of the gases that have direct imapcts on climate change. These seven gases are :
    carbon dioxide(CO2), methane(CH4), nitrous oxide(N20), chlorofluorocarbons(CFCs), hydroflourocarbons(HFCs), perflurocarbons(PFCs)
@@ -31,7 +31,7 @@
    OECD Material licensed under a particular [Creative Commons IGO license](http://www.oecd.org/termsandconditions/)
 
 
-### 2. Draft Research Questions
+## 2. Draft Research Questions
   1. We assume that the greenhouse gases amount in the atmosphere is increasing each year.
   2. Considering the amount of GHG emission in data set, we assume that USA, Great Britain , Canada are countries which are more prone        climate change.
   3. We assume that GDP and population are directly proportional to GHG emission.
@@ -41,7 +41,7 @@
 
 
 
-### 3. Work Plan
+## 3. Work Plan
 
 1. Work plan and Drafting Research Questions - Week 5 
 2. Data Cleaning documentation draft - Week 7
@@ -53,9 +53,9 @@
 8. Git Package - Weeek 15
 
 
-### 4. Project Effort Allocation
+## 4. Project Effort Allocation
 
 
 
-### 5. Target Audience
+## 5. Target Audience
    Government, Non-profit Organizations, Third party vendors.
