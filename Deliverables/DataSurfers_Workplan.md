@@ -32,10 +32,12 @@
 
 
 ### 2. Draft Research Questions
-  1. We assume that the greenhouse gases amount in the atmosphere is increasing.
+  1. We assume that the greenhouse gases amount in the atmosphere is increasing each year.
   2. Considering the amount of GHG emission in data set, we assume that USA, Great Britain , Canada are countries which are more prone        climate change.
   3. We assume that GDP and population are directly proportional to GHG emission.
-  4. 
+  4. We assume that the highest amount of NOX and SOX gases are emitted from OECD countries.
+  5. According to the values in the dataset, we assume that urbanization can be one of the reasons for amount of GHG emission.
+  6.
 
 
 
