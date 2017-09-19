@@ -36,6 +36,7 @@
   2. Considering the amount of GHG emission in data set, do the USA, Great Britain, Canada consistently conntribute the most to greenhouse gases and have their emissions increased over time?
   3. According to the values in the dataset, is urbanization one of the reasons for amount of GHG emission? We will use GDP and population as measures of urbanization.
   4. Are the highest amount of NOX and SOX gases emitted from OECD countries?
+  5. Have all countries/continents followed the same increase/decrease patterns over time? Which countries/continents are decreasing and which are increasing?
 
 ## 3. Work Plan
 
