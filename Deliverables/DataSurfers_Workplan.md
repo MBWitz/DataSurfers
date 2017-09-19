@@ -27,7 +27,7 @@
    The dataset consists of columns such as location, indicator, subject, measure, frequency, time, value, flag_codes. This file consists      of 8 columns and 24,948 rows.
    
 #### License/ Terms of Use
-   Source: [*OECD*] (https://data.oecd.org/air/air-and-ghg-emissions.htm)
+   Source: [*OECD*](https://data.oecd.org/air/air-and-ghg-emissions.htm)
    OECD Material licensed under a particular [Creative Commons IGO license](http://www.oecd.org/termsandconditions/)
 
 
@@ -63,7 +63,7 @@
     * Prepare description of data: Srinivasa  
     * Licensing Data: Anuja  
     * Prepare metadata: Srinivasa  
-    * Identify data issues:Team   
+    * Identify data issues:Anuja   
     * Clean data and edit metadata appropriately: Molly  
     * Documentation: Molly  
   
@@ -72,13 +72,13 @@
 4. R script Draft - week 10  
     * Captain: Srinivasa  
     * Identify appropriate descriptive statistics: team  
-    * Write the code to run descriptive statistics: Srinivasa  
+    * Write the code to run descriptive statistics: Srinivasa /Anuja /Molly
     * Comment the code appropriately: Molly  
   
 5. R Plot Draft - Week 12  
     * Captain: Anuja  
     * Identify appropriate visual depiction for each question: team  
-    * Write the code to produce plots: Srinivasa  
+    * Write the code to produce plots: Srinivasa
     * Comment the code appropriately: Anuja  
     * Description of plots and what they represent: Molly  
 
@@ -100,5 +100,6 @@
     * HTML: Srinivasa  
 
 ### 5. Target Audience
- The Target audience for our dataset analysis will be individuals, non-profit organizations, Federal Institutes who have an interest in analyzing the variations in overall air and GHG emissions
+Our target audience would be individuals, non-profit organizations and  Federal Organizations which strive for achieving global 
+reductions in greenhouse gas emissions. 
 
