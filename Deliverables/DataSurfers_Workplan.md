@@ -37,6 +37,9 @@
   3. According to the values in the dataset, is urbanization one of the reasons for amount of GHG emission? We will use GDP and population as measures of urbanization.
   4. Are the highest amount of NOX and SOX gases emitted from OECD countries?
 
+  5. Have all countries/continents followed the same increase/decrease patterns over time? Which countries/continents are decreasing and which are increasing?  
+
+
 ## 3. Work Plan
 
 1. Work plan and Drafting Research Questions - Week 5 
@@ -50,10 +53,10 @@
 
 ### 4. Project Effort Allocation
 
-1. Work plan and Drafting Research Questions - Week 5 
-  Captain: Anuja
-  Review data and formulate questions: team
-  Gantt Chart: Srinivasa 
+1. Work plan and Drafting Research Questions - Week 5   
+  Captain: Anuja  
+  Review data and formulate questions: team  
+  Gantt Chart: Srinivasa   
   
 2. Data Cleaning documentation draft - Week 7  
   Captain: Molly  
@@ -65,7 +68,6 @@
   Documentation: Molly  
   
 3. Team Progress meeting - Week 9  
-
 
 4. R script Draft - week 10  
   Captain: Srinivasa  
@@ -83,13 +85,22 @@
 6. Audience Persona - Week 14  
   Captain: Molly  
   
-7. Presentation - Week 15  
-  Captain: Srinivasa
+
+7. Presentation - Week 15    
+  Captain: Srinivasa  
+  Presentation Outline: team  
+  Presentation Content: Molly  
+  Presentation Slides: Anuja  
   
-
-8. Git Package - Weeek 15  
-
-
+8. Git Package - Weeek 15        
+   Captain: Anuja     
+   ReadMe: Anuja  
+   HTML: Srinivasa  
+   Audience Persona: Molly  
+   Written Summary: Molly  
+   Slides: Anuja  
+   Markdown Summary of contributions: Srinivasa  
 
 ### 5. Target Audience
+
 
