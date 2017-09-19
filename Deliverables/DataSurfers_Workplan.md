@@ -23,11 +23,11 @@
 #### About this file
    * Owner : OECD
    * File size : 1.35 MB
-   * Format : CSV
-   The dataset consists of columns such as location, indicator, subject, measure, frequency, time, value, flag_codes. This file consists      of 8 columns and 24,948 rows.
+   * Format : CSV.
+  The dataset consists of columns such as location, indicator, subject, measure, frequency, time, value, flag_codes. This file consists      of 8 columns and 24,948 rows.
    
 #### License/ Terms of Use
-   Source: [*OECD*](https://data.oecd.org/air/air-and-ghg-emissions.htm)
+   Source: [*OECD*](https://data.oecd.org/air/air-and-ghg-emissions.htm).
    OECD Material licensed under a particular [Creative Commons IGO license](http://www.oecd.org/termsandconditions/)
 
 
@@ -100,6 +100,6 @@
     * HTML: Srinivasa  
 
 ### 5. Target Audience
-Our target audience would be individuals, non-profit organizations and  Federal Organizations which strive for achieving global 
+Our target audience would be individuals, non-profit organizations and Federal Organizations which strive for achieving global 
 reductions in greenhouse gas emissions. 
 
