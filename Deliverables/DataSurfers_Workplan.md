@@ -12,12 +12,12 @@
 
 ## 1. Introduction
      
-   Greenhouse gases refer to the sum of the gases that have direct imapcts on climate change. These seven gases are :
-   carbon dioxide(CO2), methane(CH4), nitrous oxide(N20), chlorofluorocarbons(CFCs), hydroflourocarbons(HFCs), perflurocarbons(PFCs)
+   Greenhouse gases refer to the sum of the gases that have direct impacts on climate change. These seven gases are :
+   carbon dioxide(CO2), methane(CH4), nitrous oxide(N20), chlorofluorocarbons(CFCs), hydrofluorocarbons(HFCs), perfluorocarbons(PFCs)
    superhexaflouride(SF6), nitrogen triflouride(NF3)
    The data are expressed in CO2 equivalents and refer to gross direct emissions from human activities. CO2 refers to gross direct 
    emissions from fuel combustion only and data are provided by the International Energy Agency.
-   Air and greenhouse gas emissions are measured in thousand tonnes, tonnes per capita or kilogrammes per capita except for 
+   Air and greenhouse gas emissions are measured in thousand tonnes, tonnes per capita or kilograms  per capita except for 
    CO2, which is measured in million tonnes and tonnes per capita.
    
 #### About this file
@@ -33,11 +33,11 @@
 
 ## 2. Draft Research Questions
   1. Are greenhouse gas emissions increasing each year?
-  2. Considering the amount of GHG emission in data set, do the USA, Great Britain, Canada consistently conntribute the most to greenhouse gases and have their emissions increased over time?
+  2. Considering the amount of GHG emission in data set, do the USA, Great Britain, Canada consistently contribute the most to greenhouse gases and have their emissions increased over time?
   3. According to the values in the dataset, is urbanization one of the reasons for amount of GHG emission? We will use GDP and population as measures of urbanization.
   4. Are the highest amount of NOX and SOX gases emitted from OECD countries?
-
-  5. Have all countries/continents followed the same increase/decrease patterns over time? Which countries/continents are decreasing and which are increasing?  
+  5. Have all countries/continents followed the same increase/decrease patterns over time? Which countries/continents are decreasing 
+  and which are increasing?  
 
 
 ## 3. Work Plan
