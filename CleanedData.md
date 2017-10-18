@@ -70,38 +70,38 @@ OECD data( air_ghg_emissions.csv)
 
 **Target File :**  OECD Data (air_ghg_emissions.csv)
 
-* **Step 1:**   
-Clean  air_ghg_emissions.csv
-Eliminate data for country codes ‘EU28’, ‘G20’, ‘OECDE’, ‘OEU’, and ‘TWN’.  
-Change ‘OECD’ code to ‘OED’ for consistency with other files.  
-Eliminate CO2 values that have flag code ‘L’.  
-20728 records remain  
-Take average of 1991 and 1995 population figures for Kuwait and use for population for 1992, 1993, and 1994  
-Calculate the percent increase in urbanization for the last ten years in Eritrea. Average these increases and apply that percent increase to the 2011 urbanization rate for 2012, continue through 2016.  
-Population growth in Eritrea slowed significantly from 2001 to 2011, but each of the last four years was approximately 1.9%, so we applied a 1.9% growth rate to 2011 population for 2012, and continued through 2016.  
+## **Step 1:**   
+### Clean  air_ghg_emissions.csv:
+* Eliminate data for country codes ‘EU28’, ‘G20’, ‘OECDE’, ‘OEU’, and ‘TWN’.  
+* Change ‘OECD’ code to ‘OED’ for consistency with other files.  
+* Eliminate CO2 values that have flag code ‘L’.  
+* 20728 records remain  
+* Take average of 1991 and 1995 population figures for Kuwait and use for population for 1992, 1993, and 1994  
+* Calculate the percent increase in urbanization for the last ten years in Eritrea. Average these increases and apply that percent increase to the 2011 urbanization rate for 2012, continue through 2016.  
+* Population growth in Eritrea slowed significantly from 2001 to 2011, but each of the last four years was approximately 1.9%, so we applied a 1.9% growth rate to 2011 population for 2012, and continued through 2016.  
 
-* **Step 2:**   
-Merge Urbanization and Emissions data  
-Create a new tab called “Urbanization” in air_ghg_emissions data file and paste
+## **Step 2:**   
+### Merge Urbanization and Emissions data  
+* Create a new tab called “Urbanization” in air_ghg_emissions data file and paste
  in Urbanization data   
-Create an index column in air_ghg_emissions data file to use in vlookup:  
+* Create an index column in air_ghg_emissions data file to use in vlookup:  
  `=IF(F3=1960,4,F3-1960+4)`  
-Where F3 is the TIME column.  
-Do vlookup for urbanization data:  
+* Where F3 is the TIME column.  
+* Do vlookup for urbanization data:  
  `=VLOOKUP(A3,Urbanization!$B$2:$BI$265,I3)`  
-Where A3 is the three letter country code column,   
-Country name column is not included in the LookUp table (note the range begins with column B),   
+* Where A3 is the three letter country code column,   
+* Country name column is not included in the LookUp table (note the range begins with column B),   
 and I3 is the index created in the previous step.  
 
-* **Step 3:**   
-Merge Population.csv and air_ghg_emissions.csv data  
-Create a new tab called “Population” in air_ghg_emissions data file and paste in Population data   
-Do vlookup for population data:  
+## **Step 3:**   
+### Merge Population.csv and air_ghg_emissions.csv data  
+* Create a new tab called “Population” in air_ghg_emissions data file and paste in Population data   
+* Do vlookup for population data:  
 `=VLOOKUP(A3,Population!$B$2:$BI$265,I3)`  
-Where A3 is the three letter country code column,   
-Country name column is not included in the LookUp table (note the range begins with column B),   
-and I3 is the index created in the Urbanization merge (urbanization and population are from the same source and formatted in the same manner).  
+* Where A3 is the three letter country code column,   
+* Country name column is not included in the LookUp table (note the range begins with column B), and  
+* I3 is the index created in the Urbanization merge (urbanization and population are from the same source and formatted in the same manner).  
 
-* **Step 4:**   
-Create final csv file  
-Copy the new expanded table, and paste as values into a new file. Save as air_ghg_data.csv.
+## **Step 4:**   
+### Create final csv file  
+* Copy the new expanded table, and paste as values into a new file. Save as air_ghg_data.csv.
