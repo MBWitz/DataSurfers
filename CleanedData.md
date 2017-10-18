@@ -65,11 +65,6 @@ One of our questions requires us to use data about population and urbanization r
  
 # 6. Script or Description of Data Cleaning Process
 
-**Source Files :** World Bank data (Urbanization_Percent.csv, Population.csv) 
-OECD data( air_ghg_emissions.csv)
-
-**Target File :**  OECD Data (air_ghg_emissions.csv)
-
 ## **Step 1:**   
 ### Clean  air_ghg_emissions.csv:
 * Eliminate data for country codes ‘EU28’, ‘G20’, ‘OECDE’, ‘OEU’, and ‘TWN’.  
@@ -83,7 +78,7 @@ OECD data( air_ghg_emissions.csv)
 ## **Step 2:**   
 ### Merge Urbanization and Emissions data  
 * Create a new tab called “Urbanization” in air_ghg_emissions data file and paste
- in Urbanization data   
+ in Urbanization data from World Bank   
 * Create an index column in air_ghg_emissions data file to use in vlookup:  
  `=IF(F3=1960,4,F3-1960+4)`  
 * Where F3 is the TIME column.  
@@ -95,7 +90,7 @@ and I3 is the index created in the previous step.
 
 ## **Step 3:**   
 ### Merge Population.csv and air_ghg_emissions.csv data  
-* Create a new tab called “Population” in air_ghg_emissions data file and paste in Population data   
+* Create a new tab called “Population” in air_ghg_emissions data file and paste in Population data from World Bank   
 * Do vlookup for population data:  
 `=VLOOKUP(A3,Population!$B$2:$BI$265,I3)`  
 * Where A3 is the three letter country code column,   
