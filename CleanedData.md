@@ -96,7 +96,8 @@ and I3 is the index created in the previous step.
 * Where A3 is the three letter country code column,   
 * Country name column is not included in the LookUp table (note the range begins with column B), and  
 * I3 is the index created in the Urbanization merge (urbanization and population are from the same source and formatted in the same manner).  
+* Save file as [air_ghg_data_with_formulas.xlsx](air_ghg_data_with_formulas.xlsx)
 
 ## **Step 4:**   
 ### Create final csv file  
-* Copy the new expanded table, and paste as values into a new file. Save as air_ghg_data.csv.
+* Copy the new expanded table, and paste as values into a new file. Save as [air_ghg_data.csv](air_ghg_data.csv).
