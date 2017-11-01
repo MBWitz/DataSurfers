@@ -1,3 +1,175 @@
+# Q1:
+
+### Read the csv file:
+ghg <- read.csv("C:\\Users\\molly\\Documents\\School\\ISQA8086\\air_ghg_data.csv")
+
+### View a summary of the data:
+summary(ghg)  
+_Summary shows that we do not have enough ghg data points to do meaningful analysis. We have far more data for CO2 emissions, so_
+_we will do the same analysis we planned but on CO2 emissions, which are the leading contributor to green house gases._
+
+### Create a subset of just CO2 values:
+ghg.sub <- ghg[ghg$SUBJECT == 'CO2', ]
+
+### Create a subset of CO2 set with CO2 that is measured in Millions of Tons:
+ghg.sub2 <- ghg.sub[ghg.sub$MEASURE == 'MLN_TONNE', ]
+
+### Create subsets of millions of tons CO2 emissions by year for 2014:
+ghg.sub2014 <- ghg.sub2[ghg.sub2$TIME == 2014, ]
+
+### Rank the top 20 CO2 producers from 2014, omit top two (World and OED), store in top2014 dataframe:
+top2014 <- tail(head(ghg.sub2014[order(ghg.sub2014$Value, decreasing= T),], n = 22), n=20)
+
+### Create a barchart of top 20 CO2 producing nation for 2014:
+barplot(top2014$Value, main="Top CO2 Producing Countries 2014", col = rainbow(20), space=0)  
+axis(1, at=.5:19.5, labels=top2014$COUNTRY)  
+
+### Rank and plot top 20 CO2 producers for 2010:
+ghg.sub2010<-ghg.sub2[ghg.sub2$TIME == 2010, ]  
+top2010<-tail(head(ghg.sub2010[order(ghg.sub2010$Value, decreasing= T),], n = 22), n=20)  
+barplot(top2010$Value, main="Top CO2 Producing Countries 2010", col = rainbow(20), space = 0)  
+axis(1, at=.5:19.5, labels=top2010$COUNTRY)  
+
+### Rank and plot top 20 CO2 producers for 2005:
+ghg.sub2005<-ghg.sub2[ghg.sub2$TIME == 2005, ]  
+top2005<-tail(head(ghg.sub2005[order(ghg.sub2005$Value, decreasing= T),], n = 22), n=20)  
+barplot(top2005$Value, main="Top CO2 Producing Countries 2005", col = rainbow(20), space = 0)  
+axis(1, at=.5:19.5, labels=top2005$COUNTRY)  
+
+### Rank and plot top 20 CO2 producers for 2000:
+ghg.sub2000<-ghg.sub2[ghg.sub2$TIME == 2000, ]  
+top2000<-tail(head(ghg.sub2000[order(ghg.sub2000$Value, decreasing= T),], n = 22), n=20)  
+barplot(top2000$Value, main="Top CO2 Producing Countries 2000", col = rainbow(20), space = 0)  
+axis(1, at=.5:19.5, labels=top2000$COUNTRY)  
+
+### Rank and plot top 20 CO2 producers for 1995:
+ghg.sub1995<-ghg.sub2[ghg.sub2$TIME == 1995, ]  
+top1995<-tail(head(ghg.sub1995[order(ghg.sub1995$Value, decreasing= T),], n = 22), n=20)  
+barplot(top1995$Value, main="Top CO2 Producing Countries 1995", col = rainbow(20), space = 0)  
+axis(1, at=.5:19.5, labels=top1995$COUNTRY)  
+
+### Rank and plot top 20 CO2 producers for 1990:
+ghg.sub1990<-ghg.sub2[ghg.sub2$TIME == 1990, ]  
+top1990<-tail(head(ghg.sub1990[order(ghg.sub1990$Value, decreasing= T),], n = 22), n=20)  
+barplot(top1990$Value, main="Top CO2 Producing Countries 1990", col = rainbow(20), space = 0)  
+axis(1, at=.5:19.5, labels=top1990$COUNTRY)  
+
+### Rank and plot top 20 CO2 producers for 1985:
+ghg.sub1985<-ghg.sub2[ghg.sub2$TIME == 1985, ]  
+top1985<-tail(head(ghg.sub1985[order(ghg.sub1985$Value, decreasing= T),], n = 22), n=20)  
+barplot(top1985$Value, main="Top CO2 Producing Countries 1985", col = rainbow(20), space = 0)  
+axis(1, at=.5:19.5, labels=top1985$COUNTRY)  
+
+### Rank and plot top 20 CO2 producers for 1980:
+ghg.sub1980<-ghg.sub2[ghg.sub2$TIME == 1980, ]  
+top1980<-tail(head(ghg.sub1980[order(ghg.sub1980$Value, decreasing= T),], n = 22), n=20)  
+barplot(top1980$Value, main="Top CO2 Producing Countries 1980", col = rainbow(20), space = 0)  
+axis(1, at=.5:19.5, labels=top1980$COUNTRY)  
+
+### Rank and plot top 20 CO2 producers for 1975:
+ghg.sub1975<-ghg.sub2[ghg.sub2$TIME == 1975, ]  
+top1975<-tail(head(ghg.sub1975[order(ghg.sub1975$Value, decreasing= T),], n = 22), n=20)  
+barplot(top1975$Value, main="Top CO2 Producing Countries 1975", col = rainbow(20), space = 0)  
+axis(1, at=.5:19.5, labels=top1975$COUNTRY)  
+
+### Rank and plot top 20 CO2 producers for 1971:
+ghg.sub1971<-ghg.sub2[ghg.sub2$TIME == 1971, ]  
+top1971<-tail(head(ghg.sub1971[order(ghg.sub1971$Value, decreasing= T),], n = 22), n=20)  
+barplot(top1971$Value, main="Top CO2 Producing Countries 1971", col = rainbow(20), space = 0)  
+axis(1, at=.5:19.5, labels=top1971$COUNTRY)  
+
+### Calculate Per Capita CO2 Emissions and include in ghg.sub2:
+ghg.sub2$CO2percap <- with(ghg.sub2, (ghg.sub2$Value/ghg.sub2$Population)*1000000)
+
+### Rank the top 50 CO2 Per Capita producers from 2014, store in top2014PC dataframe:
+top2014PC <-head(ghg.sub2014[order(ghg.sub2014$CO2percap, decreasing= T),], n = 50)
+
+_We observed that the top countries for per capita use were not the same as the top countries for volume of CO2 emissions._ 
+_We had planned on focusing our analysis on the countries with the highest volumes but since many small countries with relatively_
+_low volumes actually have high per capita consumption, we want to include their numbers in the analysis. We will therfore_
+_do some analysis based on geographic region._
+
+_We had to find a list of countries by region, consolidate the regions, then append that information to our data file._
+
+### Upload new data file:
+ghg <- read.csv("C:\\Users\\molly\\Documents\\School\\ISQA8086\\air_ghg_data_w_regions.csv")
+
+### Aggregate 2014 CO2 Emissions and Population by Region:
+Region2014 <- with(ghg.sub2014, (aggregate(list(Population=ghg.sub2014$Population,Value=ghg.sub2014$Value), 
+    by=list(Region=ghg.sub2014$Region), FUN=sum)))
+
+### Calculate 2014 CO2 Emissions Per Capita by Region:
+Region2014$CO2percap <- with(Region2014, (Region2014$Value/Region2014$Population)*1000000)  
+Region2014<-Region2014[order(Region2014$CO2percap, decreasing= T),]  
+
+### Look for correlation between Urbanization and CO2 emissions:
+### First eliminate world and OED data from dataframe
+ghg.nosummary<-subset(ghg.nosummary, ghg.nosummary$COUNTRY!='WLD' & ghg.nosummary$COUNTRY!='OED')  
+plot(ghg.nosummary$Value~ghg.nosummary$Urbanization.)  
+
+### USA and China are such outliers the rest of the graph is just a clump, so eliminate those as well:
+ghg.nosummary<-subset(ghg.nosummary, ghg.nosummary$COUNTRY!='USA' & ghg.nosummary$COUNTRY!='CHN')  
+plot(ghg.nosummary$Value~ghg.nosummary$Urbanization.)  
+### add a best-fit line, which shows slight positive correlation between Urbanization and CO2 emissions:
+abline(lm(ghg.nosummary$Value~ghg.nosummary$Urbanization.), col="red")  
+### verify the slight positive correlation:
+cor(ghg.nosummary$Value, ghg.nosummary$Urbanization) # =.22  
+
+### Create subsets of millions of tons CO2 emissions for USA:
+ghg.subUSA <-ghg.sub2[ghg.sub2$COUNTRY == 'USA', ]
+
+### plot the USA CO2 emissions over time with year as labels on x-axis :
+plot(ghg.subUSA$Value,  main="USA CO2 Production", type = "l",  xaxt = "n")
+axis(1, at=1:55, labels=ghg.subUSA$TIME)
+
+### Create a subset for China and plot their emissions over time:
+ghg.subCHN <-ghg.sub2[ghg.sub2$COUNTRY == 'CHN', ]  
+plot(ghg.subCHN$Value,  main="China CO2 Production", type = "l",  xaxt = "n")  
+axis(1, at=1:44, labels=ghg.subCHN$TIME)  
+_Note that Chinese CO2 production drastically increased in the early 2000's_
+
+### Create a subset for India and plot their emissions over time:
+ghg.subIND <-ghg.sub2[ghg.sub2$COUNTRY == 'IND', ]  
+plot(ghg.subIND$Value,  main="India CO2 Production", type = "l",  xaxt = "n")  
+axis(1, at=1:44, labels=ghg.subIND$TIME)  
+
+### Create a subset for Russia and plot their emissions over time:
+ghg.subRUS <-ghg.sub2[ghg.sub2$COUNTRY == 'RUS', ]  
+plot(ghg.subRUS$Value,  main="Russia CO2 Production", type = "l",  xaxt = "n")  
+axis(1, at=1:25, labels=ghg.subRUS$TIME)  
+
+### Create a subset for Germany and plot their emissions over time:
+ghg.subDEU <-ghg.sub2[ghg.sub2$COUNTRY == 'DEU', ]  
+plot(ghg.subDEU$Value,  main="Germany CO2 Production", type = "l",  xaxt = "n")  
+axis(1, at=1:55, labels=ghg.subDEU$TIME)  
+
+### Create a subset for Japan and plot their emissions over time:
+ghg.subJPN <-ghg.sub2[ghg.sub2$COUNTRY == 'JPN', ]  
+plot(ghg.subJPN$Value,  main="Japan CO2 Production", type = "l",  xaxt = "n")  
+axis(1, at=1:55, labels=ghg.subJPN$TIME)  
+
+### Create a subset for United Kingdom and plot their emissions over time:
+ghg.subGBR <-ghg.sub2[ghg.sub2$COUNTRY == 'GBR', ]  
+plot(ghg.subGBR$Value,  main="United Kingdom CO2 Production", type = "l",  xaxt = "n")  
+axis(1, at=1:55, labels=ghg.subGBR$TIME)  
+
+#### Attempting to graph all top 7 countries on the same graph...not yet successful
+top7list <- c("USA", "CHN", "DEU","RUS", "IND", "GBR","JPN")  
+top7data <- ghg.sub2$COUNTRY[top7list]  
+#### Another attempt...still unsuccessful
+plot(ghg.subUSA$Value~ghg.subUSA$TIME,type="l",col = cl[3], xlab = "Time", ylab = "CO2", main = "CO2 Emissions")  
+lines(ghg.subDEU$TIME,ghg.subDEU$Value,col = cl[1],type = 'l')  
+lines(ghg.subGBR$TIME,ghg.subGBR$Value,col = cl[2],type = 'l')  
+
+### World subset and graph:
+ghg.subWLD <- ghg.sub2[ghg.sub2$COUNTRY == 'WLD',]  
+plot(ghg.subWLD$Value, main="World CO2 Production", type = "l", xaxt = "n")  
+axis(1, at=1:44, labels=ghg.subWLD$TIME)   
+
+### OED subset and graph:
+ghg.subOED <- ghg.sub2[ghg.sub2$COUNTRY == 'OED',]  
+plot(ghg.subOED$Value,  main="OECD Member CO2 Production", type = "l", xaxt = "n")  
+axis(1, at=1:44, labels=ghg.subOED$TIME)  
 
 # Q2: 
 ## Set working directory
