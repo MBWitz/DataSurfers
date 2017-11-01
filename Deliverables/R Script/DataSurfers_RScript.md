@@ -1,4 +1,5 @@
 # Q1:
+## Which countries and regions contribute the most CO2 emissions, both on a total volume basis and from a per capita perspective? Do the top offenders have similar patterns of increasing and decreasing emissions? 
 
 ### Read the csv file:
 ghg <- read.csv("https://github.com/MBWitz/DataSurfers/blob/master/air_ghg_data.csv")
@@ -102,20 +103,7 @@ Region2014 <- with(ghg.sub2014, (aggregate(list(Population=ghg.sub2014$Populatio
 Region2014$CO2percap <- with(Region2014, (Region2014$Value/Region2014$Population)*1000000)  
 Region2014<-Region2014[order(Region2014$CO2percap, decreasing= T),]  
 
-### Look for correlation between Urbanization and CO2 emissions:
-### First eliminate world and OED data from dataframe
-ghg.nosummary<-subset(ghg.nosummary, ghg.nosummary$COUNTRY!='WLD' & ghg.nosummary$COUNTRY!='OED')  
-plot(ghg.nosummary$Value~ghg.nosummary$Urbanization.)  
-
-### USA and China are such outliers the rest of the graph is just a clump, so eliminate those as well:
-ghg.nosummary<-subset(ghg.nosummary, ghg.nosummary$COUNTRY!='USA' & ghg.nosummary$COUNTRY!='CHN')  
-plot(ghg.nosummary$Value~ghg.nosummary$Urbanization.)  
-### add a best-fit line, which shows slight positive correlation between Urbanization and CO2 emissions:
-abline(lm(ghg.nosummary$Value~ghg.nosummary$Urbanization.), col="red")  
-### verify the slight positive correlation:
-cor(ghg.nosummary$Value, ghg.nosummary$Urbanization) # =.22  
-
-### Create subsets of millions of tons CO2 emissions for USA:
+### Create subsets of millions of tons CO2 emissions for just the USA:
 ghg.subUSA <-ghg.sub2[ghg.sub2$COUNTRY == 'USA', ]
 
 ### plot the USA CO2 emissions over time with year as labels on x-axis :
@@ -172,6 +160,8 @@ plot(ghg.subOED$Value,  main="OECD Member CO2 Production", type = "l", xaxt = "n
 axis(1, at=1:44, labels=ghg.subOED$TIME)  
 
 # Q2: 
+## Are urbanization rates correlated to carbon dioxide emissions?
+
 ## Set working directory
 setwd("D:/college/cs8086_data2decisions/Project")
 
@@ -218,7 +208,9 @@ barplot(top52012$Urabnization., main="Top Urbanizied Regions 2012", col = rainbo
 axis(1, at=.5:14.5, labels=top2014$region)
 
 
-## Q3)
+# Q3:
+## Are Nitrogen Oxides (NOX) and Sulphur Oxides (SOX) emissions highest from OECD (Organization for Economic Cooperation and Development) member countries? Are these emissions correlated to urbanization?
+
 #### To read the csv file in to R
 nox<-read_csv("E:/DBA4-A/air.csv")
 
