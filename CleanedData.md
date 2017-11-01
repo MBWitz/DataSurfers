@@ -28,7 +28,8 @@ Open License
 No official metadata is available for the data. There is an interactive tool on the website allowing the user to look up what country each three-letter code represents, and what environmental toxins are represented by each abbreviation. 
 
 *  **World Bank Data:**
-Metadata is available as a link on the World Bank site. It describes the source, importance, and method of collecting data. 
+Metadata can be found here:
+http://databank.worldbank.org/data/reports.aspx?source=2&type=metadata&series=SP.POP.TOTL 
 
 # 4. Data Issues
 
@@ -67,19 +68,21 @@ One of our questions requires us to use data about population and urbanization r
 
 ## **Step 1:**   
 ### Clean  air_ghg_emissions.csv:
+Using Excel:  
 * Eliminate data for country codes ‘EU28’, ‘G20’, ‘OECDE’, ‘OEU’, and ‘TWN’.  
 * Change ‘OECD’ code to ‘OED’ for consistency with other files.  
 * Eliminate CO2 values that have flag code ‘L’.  
 * 20728 records remain  
-* Take average of 1991 and 1995 population figures for Kuwait and use for population for 1992, 1993, and 1994  
-* Calculate the percent increase in urbanization for the last ten years in Eritrea. Average these increases and apply that percent increase to the 2011 urbanization rate for 2012, continue through 2016.  
+* In the population tab, take average of 1991 and 1995 population figures for Kuwait and use for population for 1992, 1993, and 1994:
+`=($AJ$127+$AN$127)/2`
+* Calculate the percent increase in urbanization for each of the last ten years in Eritrea. Average these increases and apply that percent increase to the 2011 urbanization rate for 2012, continue through 2016.  
 * Population growth in Eritrea slowed significantly from 2001 to 2011, but each of the last four years was approximately 1.9%, so we applied a 1.9% growth rate to 2011 population for 2012, and continued through 2016.  
 
 ## **Step 2:**   
 ### Merge Urbanization and Emissions data  
 * Create a new tab called “Urbanization” in air_ghg_emissions data file and paste
  in Urbanization data from World Bank   
-* Create an index column in air_ghg_emissions data file to use in vlookup:  
+* Create an index column in project data page to use in vlookup:  
  `=IF(F3=1960,4,F3-1960+4)`  
 * Where F3 is the TIME column.  
 * Do vlookup for urbanization data:  
@@ -87,16 +90,18 @@ One of our questions requires us to use data about population and urbanization r
 * Where A3 is the three letter country code column,   
 * Country name column is not included in the LookUp table (note the range begins with column B),   
 and I3 is the index created in the previous step.  
+* Copy the formula to each row of the data.
 
 ## **Step 3:**   
 ### Merge Population.csv and air_ghg_emissions.csv data  
 * Create a new tab called “Population” in air_ghg_emissions data file and paste in Population data from World Bank   
-* Do vlookup for population data:  
+* Do vlookup for population data in the project data page:  
 `=VLOOKUP(A3,Population!$B$2:$BI$265,I3)`  
 * Where A3 is the three letter country code column,   
 * Country name column is not included in the LookUp table (note the range begins with column B), and  
 * I3 is the index created in the Urbanization merge (urbanization and population are from the same source and formatted in the same manner).  
 * Save file as [air_ghg_data_with_formulas.xlsx](air_ghg_data_with_formulas.xlsx)
+* Copy the fomrula to each row of the data.
 
 ## **Step 4:**   
 ### Create final csv file  
