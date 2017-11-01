@@ -1,7 +1,7 @@
 # Q1:
 
 ### Read the csv file:
-ghg <- read.csv("C:\\Users\\molly\\Documents\\School\\ISQA8086\\air_ghg_data.csv")
+ghg <- read.csv("https://github.com/MBWitz/DataSurfers/blob/master/air_ghg_data.csv")
 
 ### View a summary of the data:
 summary(ghg)  
@@ -92,7 +92,7 @@ _do some analysis based on geographic region._
 _We had to find a list of countries by region, consolidate the regions, then append that information to our data file._
 
 ### Upload new data file:
-ghg <- read.csv("C:\\Users\\molly\\Documents\\School\\ISQA8086\\air_ghg_data_w_regions.csv")
+ghg <- read.csv("https://github.com/MBWitz/DataSurfers/blob/master/air_ghg_data_w_regions.csv")
 
 ### Aggregate 2014 CO2 Emissions and Population by Region:
 Region2014 <- with(ghg.sub2014, (aggregate(list(Population=ghg.sub2014$Population,Value=ghg.sub2014$Value), 
