@@ -73,10 +73,24 @@ Using Excel:
 * Change ‘OECD’ code to ‘OED’ for consistency with other files.  
 * Eliminate CO2 values that have flag code ‘L’.  
 * 20728 records remain  
-* In the population tab, take average of 1991 and 1995 population figures for Kuwait and use for population for 1992, 1993, and 1994:
+* In the population tab, take average of 1991 and 1995 population figures for Kuwait and use for population for 1992, 1993, and 1994:  
 `=($AJ$127+$AN$127)/2`
-* Calculate the percent increase in urbanization for each of the last ten years in Eritrea. Average these increases and apply that percent increase to the 2011 urbanization rate for 2012, continue through 2016.  
-* Population growth in Eritrea slowed significantly from 2001 to 2011, but each of the last four years was approximately 1.9%, so we applied a 1.9% growth rate to 2011 population for 2012, and continued through 2016.  
+* Copy the population and urbanization rates from 1999 through 2011 for Eritrea into columns in a new sheet. Start with 1999 Urbanization in B3 and Population in E3.  
+* In cell C4, calculate the percent increase in urbanization for the year 2000 in Eritrea:    
+`=B4/B3-1` Copy this formula down through cell B15 (2011)
+* In cell D5, calculate the percent increase in urbanization growth for the year 2000 in Eritrea:  
+`=C5/C4` Copy this formula down through D15 (2011)
+* Average these increases:   
+`=AVERAGE(D5:D15)` Copy this VALUE down through D20 (2016)
+* Apply that percent increase to the 2011 urbanization rate for 2012:   
+`=D16*C15` Copy this formula down through C20 (2016)
+* Finally Apply these growth rates to project Urbanization rates starting in cell B16 for 2012:  
+`=B15*(1+C16)` Copy this formula down through B20 (2016).
+* In cell F4 calculate population growth in Eritrea from 1999 to 2000:  
+`=E4/E3-1` Copy this formula down through cell F15 (2011)
+* Note that population growth in Eritrea slowed significantly from 2001 to 2011, but each of the last four years was approximately 1.9%, so we filled in 1.9% growth rate in to cells F16 through F20. We then applied the rate to 2011 population for 2012 in cell E15:    
+`=E14*(1+F15)` and copied that formula through E20 (2016).  
+* We transferred the values for Urbanization and Population to the Urbanization and Population tabs, respectively, so that they were available for the VLOOKUP in Step 2. 
 
 ## **Step 2:**   
 ### Merge Urbanization and Emissions data  
