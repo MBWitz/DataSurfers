@@ -6,10 +6,10 @@ output: html_document
 ---
 
 #### Read in the data file:
-```{r}
-ghg <- read.csv("C:\\Users\\molly\\Documents\\School\\ISQA8086\\air_ghg_data_w_regions_new.csv")
-```
 
+```{r}
+ghg <- read.csv("https://raw.githubusercontent.com/MBWitz/DataSurfers/master/air_ghg_data_w_regions_new.csv")
+```
 
 ### Question 1: Which countries and regions contribute the most CO2 emissions, both on a total volume basis and from a per capita perspective? Do the top offenders have similar patterns of increasing and decreasing emissions? 
 
@@ -153,3 +153,43 @@ This plot not include CHINA and USA because, while they exhibit the same behavio
 This plot makes it easier to visualize the positive correlation between Urbanization and CO2 emissions.
 
 ### Question 3: Are Nitrogen Oxides (NOX) and Sulphur Oxides (SOX) emissions highest from OECD (Organization for Economic Cooperation and Development) member countries? Are these emissions correlated to urbanization?
+
+#### Create a subset of just Nitrogen Oxide Emissions data:
+```{r}
+nox.sub <- ghg[ghg$SUBJECT == 'NOX', ]
+```
+
+#### Create a subset of just Sulphur Oxide emissions data:
+```{r}
+nox.sub1 <- ghg[ghg$SUBJECT == 'SOX', ]
+```
+
+#### Vertical merging of  rows that are having the subject as NOX and SOX 
+```{r}
+nox_sox<-rbind(nox.sub,nox.sub1)
+```
+
+#### Subset the values that are having the measure as 'THND_TONNE'
+```{r}
+nox_sox_tonn <- nox_sox[nox_sox$MEASURE == 'THND_TONNE', ]
+```
+
+#### Remove the unnecessary columns
+```{r}
+ nox_sox_req<-nox_sox_tonn[,c(1,3,6,7,13)]
+```
+
+#### Aggregate or Sum the values for each country over the years. This gives the sum of values of emmission of NOX or SOX gases for the country.
+```{r}
+nox_sox_grouped<-aggregate(nox_sox_req$Value, by=list(TIME=nox_sox_req$TIME,OECD_Flag=nox_sox_req$OECD_Flag), FUN=sum)
+```
+
+#### This shows the plot that show variation between OECD and NON-OECD Countries
+
+```{r}
+ggplot(data = nox_sox_grouped, aes(x = TIME, y = x, group = OECD_Flag)) +
+               xlab("Year") + ylab("Millions of Tons") +
+              geom_line(aes(color = OECD_Flag))
+```
+
+The plot shows the emmissions of nox and sox gases made by OECD countries to that of non OECD countries from 1990 to 2014. Resultant plot shows decreasing emissions for both Nitrogen Oxide and Sulphur Oxide emissions, with OECD member countries NOX and SOX emissions lower than non-OECD member nations. The main reason for this is that China is in the non-OECD group.
