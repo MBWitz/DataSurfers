@@ -60,3 +60,6 @@ ggplot(data = nox_sox_grouped, aes(x = TIME, y = x, group = OECD_Flag)) +
               geom_line(aes(color = OECD_Flag))
 ```
 
+The plot shows the emmissions of nox and sox gases made by OECD countries to that of non OECD countries from 1960 to 2014. Resultant plot shows
+that OECD countries NOX and SOX gases are relatively low. The main reason for this is china being in the non-OECD group.
+
