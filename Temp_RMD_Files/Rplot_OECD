@@ -1,0 +1,62 @@
+---
+title: "Rplot"
+author: "Srinivasa Vishnubhotla"
+date: "November 7, 2017"
+output: html_document
+---
+
+
+## To read the csv file in to R
+
+```{r}
+nox<-read_csv("E:/MISF/air_ghg_data_w_regions_new.csv")
+
+```
+
+```{r}
+nox.sub <- nox[nox$SUBJECT == 'NOX', ]
+
+```
+
+
+```{r}
+nox.sub1 <- nox[nox$SUBJECT == 'SOX', ]
+
+```
+
+```{r}
+
+## Vertical merging of  rows that are having the subject as NOX and SOX 
+
+nox_sox<-rbind(nox.sub,nox.sub1)
+
+```
+
+```{r}
+## Subset the values that are having the measure as 'THND_TONNE'
+
+
+nox_sox_tonn <- nox_sox[nox_sox$MEASURE == 'THND_TONNE', ]
+
+```
+## Remove the unnecessary columns
+
+```{r}
+ nox_sox_req<-nox_sox_tonn[,c(1,3,6,7,13)]
+
+```
+## Aggregate or Sum the values for each country over the years. This gives the sum of values of emmission of NOX or SOX gases for the country.
+
+```{r}
+nox_sox_grouped<-aggregate(nox_sox_req$Value, by=list(TIME=nox_sox_req$TIME,OECD_Flag=nox_sox_req$OECD_Flag), FUN=sum)
+
+```
+
+## This shows the plot that show variation between OECD and NON-OECD Countries
+
+```{r}
+ggplot(data = nox_sox_grouped, aes(x = TIME, y = x, group = OECD_Flag)) +
+               xlab("Year") + ylab("Millions of Tons") +
+              geom_line(aes(color = OECD_Flag))
+```
+
