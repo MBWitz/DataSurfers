@@ -43,7 +43,7 @@ http://databank.worldbank.org/data/reports.aspx?source=2&type=metadata&series=SP
 
 **Undefined Variables**
 
- * Column ‘Flag Code’ has undefined entries ‘L’ and ‘B’.  Flag codes, in order of frequency from least to greatest are B (30), L (3693), and blank (21225). Flag codes of B do not apply to any GHG (Greenhouse Gases) or CO2 (Carbon Dioxide) records, and do contain Values. Flag Codes of B come from Poland (1995), Turkey, USA, and Mexico (the latter three all from 2005 and 2008). All Flag Codes of L correspond to C02 readings and all Values are blank for these records. 
+ * Column ‘Flag Code’ has undefined entries ‘L’ and ‘B’ (perhaps Lost and Blank or Broken?).  Flag codes, in order of frequency from least to greatest are B (30), L (3693), and blank (21225). Flag codes of B do not apply to any GHG (Greenhouse Gases) or CO2 (Carbon Dioxide) records, and do contain Values. Flag Codes of B come from Poland (1995), Turkey, USA, and Mexico (the latter three all from 2005 and 2008). All Flag Codes of L correspond to C02 readings and all Values are blank for these records. 
  * Column ‘Frequency’ has uniform entries of ‘A’ which is undefined.
  * Column ‘Indicator’ has uniform entries of ‘AirEmission’ which is undefined.
  
@@ -69,7 +69,7 @@ One of our questions requires us to use data about population and urbanization r
 ## **Step 1:**   
 ### Clean  air_ghg_emissions.csv:
 Using Excel:  
-* Eliminate data for country codes ‘EU28’, ‘G20’, ‘OECDE’, ‘OEU’, and ‘TWN’.  
+* Eliminate data for country codes ‘EU28’ (member countries of EU), ‘G20’ (member countries of the G20), ‘OECDE’ (European member countries of the OECD), ‘OEU’ (also European member countries of the OECD), and ‘TWN’ (not considered a separate country from China for urbanization and population data).  
 * Change ‘OECD’ code to ‘OED’ for consistency with other files.  
 * Eliminate CO2 values that have flag code ‘L’.  
 * 20728 records remain  
@@ -96,8 +96,8 @@ Using Excel:
 ### Merge Urbanization and Emissions data  
 * Create a new tab called “Urbanization” in air_ghg_emissions data file and paste
  in Urbanization data from World Bank   
-* Create an index column in project data page to use in vlookup:  
- `=IF(F3=1960,4,F3-1960+4)`  
+* Create an index column in main project data page to use in vlookup:  
+ `=IF(F3=1960,4,F3-1960+4)`  and copy to every row.
 * Where F3 is the TIME column.  
 * Do vlookup for urbanization data:  
  `=VLOOKUP(A3,Urbanization!$B$2:$BI$265,I3)`  
@@ -109,13 +109,13 @@ and I3 is the index created in the previous step.
 ## **Step 3:**   
 ### Merge Population.csv and air_ghg_emissions.csv data  
 * Create a new tab called “Population” in air_ghg_emissions data file and paste in Population data from World Bank   
-* Do vlookup for population data in the project data page:  
+* Do vlookup for population data in the main project data page:  
 `=VLOOKUP(A3,Population!$B$2:$BI$265,I3)`  
 * Where A3 is the three letter country code column,   
 * Country name column is not included in the LookUp table (note the range begins with column B), and  
-* I3 is the index created in the Urbanization merge (urbanization and population are from the same source and formatted in the same manner).  
+* I3 is the index created in the Urbanization merge (urbanization and population are from the same source and formatted in the same manner).
+* Copy the formula to each row of the data.
 * Save file as [air_ghg_data_with_formulas.xlsx](air_ghg_data_with_formulas.xlsx)
-* Copy the fomrula to each row of the data.
 
 ## **Step 4:**   
 ### Create final csv file  
