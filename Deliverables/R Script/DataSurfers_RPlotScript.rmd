@@ -1,0 +1,142 @@
+---
+title: "DataSurfers_RPlotDraft"
+author: "Anuja Janet, Srinivasa Keerthy Vishnubhotla, Molly Witzenburg"
+date: "November 7, 2017"
+output: html_document
+---
+
+#### Read in the data file:
+```{r}
+ghg <- read.csv("C:\\Users\\molly\\Documents\\School\\ISQA8086\\air_ghg_data_w_regions_new.csv")
+```
+
+### Question 1: Which countries and regions contribute the most CO2 emissions, both on a total volume basis and from a per capita perspective? Do the top offenders have similar patterns of increasing and decreasing emissions? 
+
+
+#### Create a subset of just CO2 values:
+```{r}
+ghg.sub <- ghg[ghg$SUBJECT == 'CO2', ]
+```
+
+#### Create a subset of CO2 set with CO2 that is measured in Millions of Tons:
+```{r}
+ghg.sub2 <- ghg.sub[ghg.sub$MEASURE == 'MLN_TONNE', ]
+```
+ 
+#### Create a subset with 7 countries who have been in top five since 1971 (checked ten dates at approximately 5 year intervals between 1971 and 2014):
+```{r}
+top7data<- ghg.sub2[ghg.sub2$COUNTRY=="USA"|ghg.sub2$COUNTRY=="CHN"|ghg.sub2$COUNTRY=="DEU"|ghg.sub2$COUNTRY=="RUS"|ghg.sub2$COUNTRY=="IND"|ghg.sub2$COUNTRY=="GBR"|ghg.sub2$COUNTRY=="JPN",]
+```
+ 
+#### Include only CO2 measured since 1971 (because several countries have no data prior)
+```{r}
+top7CO2<- top7data[top7data$TIME>=1971, ]   
+summary(top7CO2)
+```
+
+#### Line plots of CO2 emissions in top 7 countries, different color for each country:
+```{r}
+require(ggplot2)  
+ggplot(data = top7CO2, aes(x = TIME, y = Value, group = COUNTRY)) + xlab("Year") + ylab("Millions of Tons") + ggtitle("Total CO2 Emissions", subtitle="Top 7 Producers") + geom_line(aes(color = COUNTRY)) 
+```  
+
+This plot shows that China's CO2 production has seen a sharp increase in the last decade and they produce, by far, the most CO2 emissions. China's growth looks like a steep exponential curve until approximately 2009, and for the last five years, while they are still exhibiting growth, the concavity of the curve changed direction, indicating a slower growth rate.   
+The chart also shows that the USA's emissions are consistently much higher than the other countries in the top seven.   
+India is also seeing rapid growth in CO2 emissions, going from 7th place in 1970 to third in 2014.   
+Russia's data starts in 1990 (after the collapse of communism in 1989)   
+Japan, Germany, and Great Britain have similar and relatively consistent emissions patterns, though Japan had a slight increase while Germany had a decrease, causing them to switch places in the rankings.    
+
+#### Calculate per capita CO2 emissions for top7 and plot them:    
+```{r}
+top7CO2$CO2percap <- with(top7CO2, (top7CO2$Value/top7CO2$Population)*1000000)     
+ggplot(data = top7CO2, aes(x = TIME, y = CO2percap, group = COUNTRY)) +
+     xlab("Year") + ylab("CO2 Per Capita") + 
+     ggtitle("CO2 Emissions per Capita", subtitle="Top 7 Producers") + 
+     geom_line(aes(color = COUNTRY)) 
+```     
+
+When considering per capita CO2 emissions, the USA is consistently significantly higher than any other country of the top 7 CO2 emissions producing countries. The USA, Germany, and Great Britain exhibit decreasing trend over time, while Japan and India are growing slowly, and China grew quite rapidly in the last two decades. Russia has not exhibited a consistent pattern, but their CO2 emissions per capita are consistently among the highest. 
+
+#### Summarize CO2 Emissions by Region, eliminating OECD member nation data and World Data:
+```{r}
+ghg.sub3<-ghg.sub2[ghg.sub2$COUNTRY!="WLD"&ghg.sub2$COUNTRY!="OED",]  
+ghg.region<- with(ghg.sub3,(aggregate(list(Population=ghg.sub3$Population,Value=ghg.sub3$Value), by=list(Region=ghg.sub3$Region, TIME=ghg.sub3$TIME), FUN=sum)))
+```
+ 
+#### Calculate per capita emissions by region:
+```{r}
+ghg.region$CO2percap <- with(ghg.region, (ghg.region$Value/ghg.region$Population)*1000000)
+```
+ 
+#### Graph CO2 emissions by region and per Capita by region starting in 1971:
+```{r} 
+ghg.region<-ghg.region[ghg.region$TIME>=1971,]
+ggplot(data = ghg.region, aes(x = TIME, y = Value, group = Region)) +
+     xlab("Year") + ylab("Millions of Tons") +
+     ggtitle("Total CO2 Emissions", subtitle="By Region") +
+     geom_line(aes(color = Region))
+```  
+ 
+```{r}
+ggplot(data = ghg.region, aes(x = TIME, y = CO2percap, group = Region)) +
+     xlab("Year") + ylab("CO2 Per Capita") + 
+     ggtitle("CO2 Emissions per Capita", subtitle="Global Regions") + 
+     geom_line(aes(color = Region))
+```  
+
+These plots confirm that the disproportionately high rates of CO2 emissions in the United States and China cause the regions that contain these countries to mirror their usage patterns.  
+Regions that are primarily made up of less industrial economies have much lower emissions overall and per capita, as would be expected. However, many of these regions are showing growth of their emissions, perhaps reflecting the relocation of much manufacturing out of industrialized nations like the USA into less developed economies with laxer environmental regulation.  
+The regions that have been the top four since 1971 have seen similar decrease patterns for the last decade in both total CO2 emissions and per capita emissions.
+
+### Question 2: Are urbanization rates correlated to carbon dioxide emissions?
+
+#### Create a subset by removing WLD ans OED countries.
+```{r}
+ghg.sub3<-subset(ghg.sub2, ghg.sub2$COUNTRY!='WLD' & ghg.sub2$COUNTRY!='OED')
+```
+#### Summary of the subset.
+```{r}
+summary(ghg.sub3)
+```
+#### Create a basic scatter plot between Value and Urbanization to understand how they are correlated.
+```{r}
+ plot(ghg.sub3$Value~ghg.sub3$Urbanization.)
+```
+#### Create another subset by removing outliers such as China and USA.
+```{r}
+ghg.sub4<-subset(ghg.sub3, ghg.sub3$COUNTRY!='USA' & ghg.sub3$COUNTRY!='CHN')
+```
+#### Create a scatter plot between value and urbanization with the new subset that we have created.
+```{r}
+ plot(ghg.sub4$Value~ghg.sub4$Urbanization.)
+```
+#### A best fit line enables us to understand the positive correlation better.
+```{r}
+plot(ghg.sub4$Value~ghg.sub4$Urbanization.)
+abline(lm(ghg.sub4$Value~ghg.sub4$Urbanization.), col="red")
+```
+#### Find the correlation value to confirm that it is positive.
+```{r}
+cor(ghg.sub4$Value, ghg.sub4$Urbanization) # =.22
+```
+```{r}
+require(ggplot2)
+```
+#### Graph CO2 and Urbanization percentage by country.
+```{r}
+ggplot(data = ghg.sub4, aes(x = Urbanization., y = Value, group = COUNTRY)) +
+xlab("Urbanization") + ylab("Millions of Tons") +
+ggtitle("Total CO2 Emissions vs Urbanization", subtitle="Without China and USA") +
+ geom_line(aes(color = COUNTRY))
+```
+These plots helps us confirm that as the urbanization percentage is increasing day-to day there is an increase in CO2 gas emmisions. We did not include CHINA and USA because, while they exhibit the same behavior, their emissions are so much higher than other countries that the graph gets very compressed when they are part of it.
+This plot shows the correlation between Urbanization percentage and CO2 gas emmision with respect to each country including CHINA and USA.
+
+```{r}
+ggplot(data = ghg.sub3, aes(x = Urbanization., y = Value, group = COUNTRY)) +
+xlab("Urbaniztion") + ylab("Millions of Tons") +
+ggtitle("Total CO2 Emissions vs. Urbanization", subtitle="All Countries") +
+ geom_line(aes(color = COUNTRY))
+```
+
+### Question 3: Are Nitrogen Oxides (NOX) and Sulphur Oxides (SOX) emissions highest from OECD (Organization for Economic Cooperation and Development) member countries? Are these emissions correlated to urbanization?
