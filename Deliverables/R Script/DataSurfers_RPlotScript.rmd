@@ -39,8 +39,7 @@ summary(top7CO2)
 require(ggplot2)  
 ggplot(data = top7CO2, aes(x = TIME, y = Value, group = COUNTRY)) + xlab("Year") + ylab("Millions of Tons") + ggtitle("Total CO2 Emissions", subtitle="Top 7 Producers") + geom_line(aes(color = COUNTRY)) 
 ```  
-https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/Total_CO2_Top7.png
-
+![Total_CO2_Emissions](https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/Total_CO2_Top7.png)
 
 This plot shows that China's CO2 production has seen a sharp increase in the last decade and they produce, by far, the most CO2 emissions. China's growth looks like a steep exponential curve until approximately 2009, and for the last five years, while they are still exhibiting growth, the concavity of the curve changed direction, indicating a slower growth rate.   
 The chart also shows that the USA's emissions are consistently much higher than the other countries in the top seven.   
@@ -56,8 +55,7 @@ ggplot(data = top7CO2, aes(x = TIME, y = CO2percap, group = COUNTRY)) +
      ggtitle("CO2 Emissions per Capita", subtitle="Top 7 Producers") + 
      geom_line(aes(color = COUNTRY)) 
 ```     
-
-https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Emissions_PC_Top7.png
+![Per_Capita_CO2_Emissions](https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Emissions_PC_Top7.png)
 
 When considering per capita CO2 emissions, the USA is consistently significantly higher than any other country of the top 7 CO2 emissions producing countries. The USA, Germany, and Great Britain exhibit decreasing trend over time, while Japan and India are growing slowly, and China grew quite rapidly in the last two decades. Russia has not exhibited a consistent pattern, but their CO2 emissions per capita are consistently among the highest. 
 
@@ -80,7 +78,7 @@ ggplot(data = ghg.region, aes(x = TIME, y = Value, group = Region)) +
      ggtitle("Total CO2 Emissions", subtitle="By Region") +
      geom_line(aes(color = Region))
 ```  
-https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Emissions_Region.png
+![Total_CO2_Emissions_by_Region](https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Emissions_Region.png)
 
 ```{r}
 ggplot(data = ghg.region, aes(x = TIME, y = CO2percap, group = Region)) +
@@ -88,7 +86,7 @@ ggplot(data = ghg.region, aes(x = TIME, y = CO2percap, group = Region)) +
      ggtitle("CO2 Emissions per Capita", subtitle="Global Regions") + 
      geom_line(aes(color = Region))
 ```  
-https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Emissions_PC_Region.png
+![Per_Capita_CO2_Emissions_by_Region](https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Emissions_PC_Region.png)
 
 These plots confirm that the disproportionately high rates of CO2 emissions in the United States and China cause the regions that contain these countries to mirror their usage patterns.  
 Regions that are primarily made up of less industrial economies have much lower emissions overall and per capita, as would be expected. However, many of these regions are showing growth of their emissions, perhaps reflecting the relocation of much manufacturing out of industrialized nations like the USA into less developed economies with laxer environmental regulation.  
@@ -110,7 +108,7 @@ summary(ghg.sub3)
 ```{r}
  plot(ghg.sub3$Value~ghg.sub3$Urbanization.)
 ```
-https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Value_vs_Urban.png
+![CO2 Emissions vs Urbanization](https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Value_vs_Urban.png)
 
 #### Create another subset by removing outliers such as China and USA.
 ```{r}
@@ -121,14 +119,14 @@ ghg.sub4<-subset(ghg.sub3, ghg.sub3$COUNTRY!='USA' & ghg.sub3$COUNTRY!='CHN')
 ```{r}
  plot(ghg.sub4$Value~ghg.sub4$Urbanization.)
 ```
-https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Value_vs_Urban_NoUSA_CHN.png
+![CO2 Emissions vs Urbanization no CHN or USA](https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Value_vs_Urban_NoUSA_CHN.png)
 
 #### A best fit line enables us to understand the positive correlation better.
 ```{r}
 plot(ghg.sub4$Value~ghg.sub4$Urbanization.)
 abline(lm(ghg.sub4$Value~ghg.sub4$Urbanization.), col="red")
 ```
-https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Value_vs_Urban_Best_Fit.png
+![Best Fit Line](https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Value_vs_Urban_Best_Fit.png)
 
 
 #### Find the correlation value to confirm that it is positive.
@@ -147,7 +145,7 @@ xlab("Urbaniztion") + ylab("Millions of Tons") + theme(legend.position="none") +
 ggtitle("Total CO2 Emissions vs. Urbanization", subtitle="All Countries") +
  geom_line(aes(color = COUNTRY))
 ```
-https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Value_vs_Urban_Color.png
+![Urbanization vs Emissions in Color](https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Value_vs_Urban_Color.png)
 
 This plot shows the correlation between Urbanization percentage and CO2 gas emmision with respect to each country including CHINA and USA.
 The legend was eliminated because there are so many countries, the graph gets too compressed when the legend is displayed.
@@ -158,7 +156,7 @@ xlab("Urbanization") + ylab("Millions of Tons") + theme(legend.position="none")+
 ggtitle("Total CO2 Emissions vs Urbanization", subtitle="Without China and USA") +
  geom_line(aes(color = COUNTRY))
 ```
-https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Value_vs_Urban_Color_NoUSA_CHN.png
+![Urbanization vs Emission in Color no USA or CHN](https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Value_vs_Urban_Color_NoUSA_CHN.png)
 
 This plot not include CHINA and USA because, while they exhibit the same behavior, their emissions are so much higher than other countries that the graph gets very compressed when they are part of it.
 This plot makes it easier to visualize the positive correlation between Urbanization and CO2 emissions.
@@ -206,6 +204,6 @@ ggplot(data = nox_sox_grouped, aes(x = TIME, y = x, group = OECD_Flag)) +
                xlab("Year") + ylab("Millions of Tons") +
               geom_line(aes(color = OECD_Flag))
 ```
-https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/NOX_SOX_OED_vs_Not.png
+![NOX and SOX emissions OED vs Not](https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/NOX_SOX_OED_vs_Not.png)
 
 The plot shows the emmissions of nox and sox gases made by OECD countries to that of non OECD countries from 1990 to 2014. Resultant plot shows decreasing emissions for both Nitrogen Oxide and Sulphur Oxide emissions, with OECD member countries NOX and SOX emissions lower than non-OECD member nations. The main reason for this is that China is in the non-OECD group.
