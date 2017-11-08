@@ -10,6 +10,7 @@ output: html_document
 ghg <- read.csv("C:\\Users\\molly\\Documents\\School\\ISQA8086\\air_ghg_data_w_regions_new.csv")
 ```
 
+
 ### Question 1: Which countries and regions contribute the most CO2 emissions, both on a total volume basis and from a per capita perspective? Do the top offenders have similar patterns of increasing and decreasing emissions? 
 
 
@@ -23,7 +24,7 @@ ghg.sub <- ghg[ghg$SUBJECT == 'CO2', ]
 ghg.sub2 <- ghg.sub[ghg.sub$MEASURE == 'MLN_TONNE', ]
 ```
  
-#### Create a subset with 7 countries who have been in top five since 1971 (checked ten dates at approximately 5 year intervals between 1971 and 2014):
+#### Create a subset with 7 countries who have been in top five since 1971 (checked ten dates at approximately 5 year intervals between 1971 and 2014 in last week's R Script):
 ```{r}
 top7data<- ghg.sub2[ghg.sub2$COUNTRY=="USA"|ghg.sub2$COUNTRY=="CHN"|ghg.sub2$COUNTRY=="DEU"|ghg.sub2$COUNTRY=="RUS"|ghg.sub2$COUNTRY=="IND"|ghg.sub2$COUNTRY=="GBR"|ghg.sub2$COUNTRY=="JPN",]
 ```
@@ -94,49 +95,61 @@ The regions that have been the top four since 1971 have seen similar decrease pa
 ```{r}
 ghg.sub3<-subset(ghg.sub2, ghg.sub2$COUNTRY!='WLD' & ghg.sub2$COUNTRY!='OED')
 ```
+
 #### Summary of the subset.
 ```{r}
 summary(ghg.sub3)
 ```
+
 #### Create a basic scatter plot between Value and Urbanization to understand how they are correlated.
 ```{r}
  plot(ghg.sub3$Value~ghg.sub3$Urbanization.)
 ```
+
 #### Create another subset by removing outliers such as China and USA.
 ```{r}
 ghg.sub4<-subset(ghg.sub3, ghg.sub3$COUNTRY!='USA' & ghg.sub3$COUNTRY!='CHN')
 ```
+
 #### Create a scatter plot between value and urbanization with the new subset that we have created.
 ```{r}
  plot(ghg.sub4$Value~ghg.sub4$Urbanization.)
 ```
+
 #### A best fit line enables us to understand the positive correlation better.
 ```{r}
 plot(ghg.sub4$Value~ghg.sub4$Urbanization.)
 abline(lm(ghg.sub4$Value~ghg.sub4$Urbanization.), col="red")
 ```
+
 #### Find the correlation value to confirm that it is positive.
 ```{r}
 cor(ghg.sub4$Value, ghg.sub4$Urbanization) # =.22
 ```
+
 ```{r}
 require(ggplot2)
 ```
-#### Graph CO2 and Urbanization percentage by country.
-```{r}
-ggplot(data = ghg.sub4, aes(x = Urbanization., y = Value, group = COUNTRY)) +
-xlab("Urbanization") + ylab("Millions of Tons") +
-ggtitle("Total CO2 Emissions vs Urbanization", subtitle="Without China and USA") +
- geom_line(aes(color = COUNTRY))
-```
-These plots helps us confirm that as the urbanization percentage is increasing day-to day there is an increase in CO2 gas emmisions. We did not include CHINA and USA because, while they exhibit the same behavior, their emissions are so much higher than other countries that the graph gets very compressed when they are part of it.
-This plot shows the correlation between Urbanization percentage and CO2 gas emmision with respect to each country including CHINA and USA.
 
+#### Graph CO2 and Urbanization percentage by country, showing different countries in different colors.
 ```{r}
 ggplot(data = ghg.sub3, aes(x = Urbanization., y = Value, group = COUNTRY)) +
-xlab("Urbaniztion") + ylab("Millions of Tons") +
+xlab("Urbaniztion") + ylab("Millions of Tons") + theme(legend.position="none") +
 ggtitle("Total CO2 Emissions vs. Urbanization", subtitle="All Countries") +
  geom_line(aes(color = COUNTRY))
 ```
+
+This plot shows the correlation between Urbanization percentage and CO2 gas emmision with respect to each country including CHINA and USA.
+The legend was eliminated because there are so many countries, the graph gets too compressed when the legend is displayed.
+
+```{r}
+ggplot(data = ghg.sub4, aes(x = Urbanization., y = Value, group = COUNTRY)) +
+xlab("Urbanization") + ylab("Millions of Tons") + theme(legend.position="none")+
+ggtitle("Total CO2 Emissions vs Urbanization", subtitle="Without China and USA") +
+ geom_line(aes(color = COUNTRY))
+```
+
+This plot not include CHINA and USA because, while they exhibit the same behavior, their emissions are so much higher than other countries that the graph gets very compressed when they are part of it.
+This plot makes it easier to visualize the positive correlation between Urbanization and CO2 emissions.
 
 ### Question 3: Are Nitrogen Oxides (NOX) and Sulphur Oxides (SOX) emissions highest from OECD (Organization for Economic Cooperation and Development) member countries? Are these emissions correlated to urbanization?
