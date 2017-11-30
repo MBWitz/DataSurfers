@@ -7,7 +7,7 @@ output: html_document
 
 #### Load data:
 ```{r}
-ghg <- read.csv("https://raw.githubusercontent.com/MBWitz/DataSurfers/master/air_ghg_data_w_regions1130.csv")
+ghg <- read.csv("https://raw.githubusercontent.com/MBWitz/DataSurfers/master/air_ghg_data_w_regions_new1130.csv")
 ```
 
 ### Question 1: Which countries and regions contribute the most CO2 emissions, both on a total volume basis and from a per capita perspective? Do the top offenders have similar patterns of increasing and decreasing emissions? 
