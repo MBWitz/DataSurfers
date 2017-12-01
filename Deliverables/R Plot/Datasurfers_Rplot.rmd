@@ -89,6 +89,7 @@ ggplot(data = ghg.region, aes(x = TIME, y = CO2percap, group = Region)) +
 ![Per_Capita_CO2_Emissions_by_Region](https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Emissions_PC_Region.png)
 
 These plots confirm that the disproportionately high rates of CO2 emissions in the United States and China cause the regions that contain these countries to mirror their usage patterns.  
+The sudden and sharp increase in CO2 emissions in Europe in 1990 is due to the inclusion of Russian data after the collapse of the Soviet Union.
 Regions that are primarily made up of less industrial economies have much lower emissions overall and per capita, as would be expected. However, many of these regions are showing growth of their emissions, perhaps reflecting the relocation of much manufacturing out of industrialized nations like the USA into less developed economies with laxer environmental regulation.  
 The regions that have been the top four since 1971 have seen similar decrease patterns for the last decade in both total CO2 emissions and per capita emissions.
 
