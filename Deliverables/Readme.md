@@ -5,6 +5,8 @@
 2. Srinivas Keerthy Vishnubhotla
 3. Molly Witzenburg
 
+#### License: https://github.com/MBWitz/DataSurfers/blob/master/LICENSE
+
 #### Contents:
 1. Data cleaning and R analysis: 
 2. Audience Persona:
