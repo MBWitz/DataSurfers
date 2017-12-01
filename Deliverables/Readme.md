@@ -8,7 +8,7 @@
 #### License: https://github.com/MBWitz/DataSurfers/blob/master/LICENSE
 
 #### Contents:
-1. Data cleaning and R analysis: https://github.com/MBWitz/DataSurfers/blob/master/DataCleaningAndRScript.rmd
+1. Data cleaning and R analysis: 
 2. Audience Persona:
 3. Summary:
 4. Presentation:
