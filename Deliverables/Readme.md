@@ -12,4 +12,4 @@
 2. Audience Persona:
 3. Summary:
 4. Presentation:
-5. Summary of Contributorship: 
+5. Summary of Contributorship: https://github.com/MBWitz/DataSurfers/blob/master/Contributorship.md
