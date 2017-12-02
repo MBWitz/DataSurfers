@@ -162,10 +162,9 @@ ghg.sub5<-ghg.sub3[ghg.sub3$Value>=500, ]
 ```
 #### Graph CO2 and Urbanization percentage with new subset.
 ```{r}
-ggplot(data = ghg.sub4, aes(x = Urbanization., y = Value, group = COUNTRY)) +
-xlab("Urbanization") + ylab("Millions of Tons") + theme(legend.position="none")+
-ggtitle("Total CO2 Emissions vs Urbanization", subtitle="Without China and USA") +
- geom_line(aes(color = COUNTRY))
+ggplot(data = ghg.sub5, aes(x = Urbanization., y = Value, group = COUNTRY))+
+xlab("Urbanization") + ylab("Millions of Tons") + theme(legend.position='right')+ ylim(0,5000)+
+ggtitle("Total CO2 Emissions vs Urbanization", subtitle="CO2 Emissions > 500 million tonnes")+ geom_line(aes(color = COUNTRY))
 ```
 ![Urbanization vs Emission in Color where Co2emissions >500 million tonnes](https://github.com/MBWitz/DataSurfers/blob/master/Plots/Rplot_co2vsUrb.PNG)
 
@@ -183,9 +182,10 @@ xlab("Urbaniztion") + ylab("Millions of Tons") + theme(legend.position="right") 
 ggtitle("Total CO2 Emissions vs. Urbanization", subtitle="Highly populated Countries") +
  geom_line(aes(color = COUNTRY))
 ```
+![Urbanization vs Emission in Color for highly populated countries](https://github.com/MBWitz/DataSurfers/blob/master/Plots/Rplot_highly_populated.PNG)
 This plot shows that highly populated countries vary differently based on there urbanization level such as highly urbanized countries (>50%) such as Korea, Russia, Germany have a steady decrease in CO2 emissions when compared less urbanized countries (<50%) such as China and India. 
 
-![Urbanization vs Emissions in Color of highly populated(https://github.com/MBWitz/DataSurfers/blob/master/Plots/Rplot_co2_vs_urban_all_countries.PNG)
+
 
 #### create a subset of countries from previous subset with population less than 10 million
 ```{r}
@@ -200,6 +200,7 @@ ggtitle("Total CO2 Emissions vs. Urbanization ", subtitle="Less Populated Countr
 ```
 This plot shows that less populated countries are mostly urbanized( 12 out of 13). Luxembourg country has a sudden decrease in CO2 emissions. Out of 13 countries, 3 countries show increase in their CO2 emissions with Urbanization almost remaining constant.
 
+![Urbanization vs Emissions in Color of less populated](https://github.com/MBWitz/DataSurfers/blob/master/Plots/Rplot_less_populated.PNG)
 ### Question 3: Are Nitrogen Oxides (NOX) and Sulphur Oxides (SOX) emissions highest from OECD (Organization for Economic Cooperation and Development) member countries? Are these emissions correlated to urbanization?
 
 #### Create a subset of just Nitrogen Oxide Emissions data:
