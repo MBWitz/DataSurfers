@@ -111,8 +111,7 @@ x= ghg.sub3$Urbanization.
 y= ghg.sub3$Value
  plot(x,y,main="Urbanization % of all countries",xlab="Urbanization",ylab="value")
 ```
-![CO2 Emissions vs Urbanization](https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Value_vs_Urban.png)
-
+![CO2 Emissions vs Urbanization](https://github.com/MBWitz/DataSurfers/blob/master/Plots/Rplot_basic_co2_urbanization.PNG)
 #### Create another subset by removing outliers such as China and USA.
 ```{r}
 ghg.sub4<-subset(ghg.sub3, ghg.sub3$COUNTRY!='USA' & ghg.sub3$COUNTRY!='CHN')
@@ -124,7 +123,7 @@ x=ghg.sub4$Value
 y=ghg.sub4$Urbanization.
 plot(y,x,main="Urbanization % of all countries except USA and CHN",xlab="Urbanization",ylab="value")
 ```
-![CO2 Emissions vs Urbanization no CHN or USA](https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Value_vs_Urban_NoUSA_CHN.png)
+![CO2 Emissions vs Urbanization no CHN or USA](https://github.com/MBWitz/DataSurfers/blob/master/Plots/Rplot_pos_co_except_chn_usa.PNG)
 
 #### A best fit line enables us to understand the positive correlation better.
 ```{r}
@@ -133,7 +132,7 @@ x =ghg.sub4$Urbanization.
 plot(x,y,main="Positive Correlation",xlab="Urbanization",ylab="value")
 abline(lm(x~y), col="red")
 ```
-![Best Fit Line](https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Value_vs_Urban_Best_Fit.png)
+![Best Fit Line](https://github.com/MBWitz/DataSurfers/blob/master/Plots/Rplot_positive_cor_co2_vs_urbanization.PNG)
 
 
 #### Find the correlation value to confirm that it is positive.
@@ -152,7 +151,7 @@ xlab("Urbaniztion") + ylab("Millions of Tons") + theme(legend.position="none") +
 ggtitle("Total CO2 Emissions vs. Urbanization", subtitle="All Countries") +
  geom_line(aes(color = COUNTRY))
 ```
-![Urbanization vs Emissions in Color](https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Value_vs_Urban_Color.png)
+![Urbanization vs Emissions in Color](https://github.com/MBWitz/DataSurfers/blob/master/Plots/Rplot_co2_vs_urban_all_countries.PNG)
 
 This plot shows the correlation between Urbanization percentage and CO2 gas emmision with respect to each country including CHINA and USA.
 The legend was eliminated because there are so many countries, the graph gets too compressed when the legend is displayed.
@@ -163,7 +162,7 @@ xlab("Urbanization") + ylab("Millions of Tons") + theme(legend.position="none")+
 ggtitle("Total CO2 Emissions vs Urbanization", subtitle="Without China and USA") +
  geom_line(aes(color = COUNTRY))
 ```
-![Urbanization vs Emission in Color no USA or CHN](https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Value_vs_Urban_Color_NoUSA_CHN.png)
+![Urbanization vs Emission in Color where Co2emissions >500 million tonnes](https://github.com/MBWitz/DataSurfers/blob/master/Plots/Rplot_co2vsUrb.PNG)
 
 This plot not include CHINA and USA because, while they exhibit the same behavior, their emissions are so much higher than other countries that the graph gets very compressed when they are part of it.
 This plot makes it easier to visualize the positive correlation between Urbanization and CO2 emissions.
