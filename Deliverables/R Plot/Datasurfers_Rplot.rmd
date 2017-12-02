@@ -171,7 +171,7 @@ ggtitle("Total CO2 Emissions vs Urbanization", subtitle="CO2 Emissions > 500 mil
 This plot shows the correlation between Urbanization percentage and CO2 emmisions where CO2 emissions are greater than 500 million tonnes.
 This plot makes it easier to visualize the positive correlation between Urbanization and CO2 emissions.
 
-#### Create subset of countries from previous subset with population greater than 100 million
+#### Create subset of countries with population greater than 100 million
 ```{r}
 ghg.sub6<-ghg.sub3[ghg.sub3$Population>100000000, ]
 ```
@@ -187,7 +187,7 @@ This plot shows that highly populated countries vary differently based on there 
 
 
 
-#### create a subset of countries from previous subset with population less than 10 million
+#### create a subset of countries with population less than 10 million
 ```{r}
 ghg.sub7<-ghg.sub3[ghg.sub3$Population<1000000, ]
 ```
