@@ -155,7 +155,12 @@ ggtitle("Total CO2 Emissions vs. Urbanization", subtitle="All Countries") +
 
 This plot shows the correlation between Urbanization percentage and CO2 gas emmision with respect to each country including CHINA and USA.
 The legend was eliminated because there are so many countries, the graph gets too compressed when the legend is displayed.
-
+#### create subset for countries having CO2 Emissions greater than 500 million tonnes
+```{r}
+ghg.sub5<-ghg.sub3[ghg.sub3$Value>=500, ]
+```
+```{r}
+#### Graph CO2 and Urbanization percentage with new subset.
 ```{r}
 ggplot(data = ghg.sub4, aes(x = Urbanization., y = Value, group = COUNTRY)) +
 xlab("Urbanization") + ylab("Millions of Tons") + theme(legend.position="none")+
@@ -164,7 +169,7 @@ ggtitle("Total CO2 Emissions vs Urbanization", subtitle="Without China and USA")
 ```
 ![Urbanization vs Emission in Color where Co2emissions >500 million tonnes](https://github.com/MBWitz/DataSurfers/blob/master/Plots/Rplot_co2vsUrb.PNG)
 
-This plot not include CHINA and USA because, while they exhibit the same behavior, their emissions are so much higher than other countries that the graph gets very compressed when they are part of it.
+This plot shows the correlation between Urbanization percentage and CO2 emmisions where CO2 emissions are greater than 500 million tonnes.
 This plot makes it easier to visualize the positive correlation between Urbanization and CO2 emissions.
 
 ### Question 3: Are Nitrogen Oxides (NOX) and Sulphur Oxides (SOX) emissions highest from OECD (Organization for Economic Cooperation and Development) member countries? Are these emissions correlated to urbanization?
