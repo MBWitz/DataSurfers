@@ -160,7 +160,7 @@ The legend was eliminated because there are so many countries, the graph gets to
 ghg.sub5<-ghg.sub3[ghg.sub3$Value>=500, ]
 ```
 #### Graph CO2 and Urbanization percentage with new subset.
-
+```{r}
 ggplot(data = ghg.sub4, aes(x = Urbanization., y = Value, group = COUNTRY)) +
 xlab("Urbanization") + ylab("Millions of Tons") + theme(legend.position="none")+
 ggtitle("Total CO2 Emissions vs Urbanization", subtitle="Without China and USA") +
