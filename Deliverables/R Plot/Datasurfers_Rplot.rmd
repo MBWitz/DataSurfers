@@ -155,13 +155,12 @@ ggtitle("Total CO2 Emissions vs. Urbanization", subtitle="All Countries") +
 
 This plot shows the correlation between Urbanization percentage and CO2 gas emmision with respect to each country including CHINA and USA.
 The legend was eliminated because there are so many countries, the graph gets too compressed when the legend is displayed.
-#### create subset for countries having CO2 Emissions greater than 500 million tonnes
+#### Create subset for countries having CO2 Emissions greater than 500 million tonnes
 ```{r}
 ghg.sub5<-ghg.sub3[ghg.sub3$Value>=500, ]
 ```
-```{r}
 #### Graph CO2 and Urbanization percentage with new subset.
-```{r}
+
 ggplot(data = ghg.sub4, aes(x = Urbanization., y = Value, group = COUNTRY)) +
 xlab("Urbanization") + ylab("Millions of Tons") + theme(legend.position="none")+
 ggtitle("Total CO2 Emissions vs Urbanization", subtitle="Without China and USA") +
