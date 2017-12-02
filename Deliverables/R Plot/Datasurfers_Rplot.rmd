@@ -155,6 +155,7 @@ ggtitle("Total CO2 Emissions vs. Urbanization", subtitle="All Countries") +
 
 This plot shows the correlation between Urbanization percentage and CO2 gas emmision with respect to each country including CHINA and USA.
 The legend was eliminated because there are so many countries, the graph gets too compressed when the legend is displayed.
+
 #### Create subset for countries having CO2 Emissions greater than 500 million tonnes
 ```{r}
 ghg.sub5<-ghg.sub3[ghg.sub3$Value>=500, ]
@@ -170,6 +171,34 @@ ggtitle("Total CO2 Emissions vs Urbanization", subtitle="Without China and USA")
 
 This plot shows the correlation between Urbanization percentage and CO2 emmisions where CO2 emissions are greater than 500 million tonnes.
 This plot makes it easier to visualize the positive correlation between Urbanization and CO2 emissions.
+
+#### Create subset of countries from previous subset with population greater than 100 million
+```{r}
+ghg.sub6<-ghg.sub3[ghg.sub3$Population>100000000, ]
+```
+#### Plot Graph for the new subset having population greater than 100 million
+```{r}
+ggplot(data = ghg.sub6, aes(x = Urbanization., y = Value, group = COUNTRY)) +
+xlab("Urbaniztion") + ylab("Millions of Tons") + theme(legend.position="right") +
+ggtitle("Total CO2 Emissions vs. Urbanization", subtitle="Highly populated Countries") +
+ geom_line(aes(color = COUNTRY))
+```
+This plot shows that highly populated countries vary differently based on there urbanization level such as highly urbanized countries (>50%) such as Korea, Russia, Germany have a steady decrease in CO2 emissions when compared less urbanized countries (<50%) such as China and India. 
+
+![Urbanization vs Emissions in Color of highly populated(https://github.com/MBWitz/DataSurfers/blob/master/Plots/Rplot_co2_vs_urban_all_countries.PNG)
+
+#### create a subset of countries from previous subset with population less than 10 million
+```{r}
+ghg.sub7<-ghg.sub3[ghg.sub3$Population<1000000, ]
+```
+#### Plot Graph for the new subset having population less than 10 million
+```{r}
+ggplot(data = ghg.sub7, aes(x = Urbanization., y = Value, group = COUNTRY)) +
+xlab("Urbaniztion") + ylab("Millions of Tons") + theme(legend.position="right") +
+ggtitle("Total CO2 Emissions vs. Urbanization ", subtitle="Less Populated Countries") +
+ geom_line(aes(color = COUNTRY))
+```
+This plot shows that less populated countries are mostly urbanized( 12 out of 13). Luxembourg country has a sudden decrease in CO2 emissions. Out of 13 countries, 3 countries show increase in their CO2 emissions with Urbanization almost remaining constant.
 
 ### Question 3: Are Nitrogen Oxides (NOX) and Sulphur Oxides (SOX) emissions highest from OECD (Organization for Economic Cooperation and Development) member countries? Are these emissions correlated to urbanization?
 
