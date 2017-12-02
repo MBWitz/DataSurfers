@@ -107,7 +107,9 @@ summary(ghg.sub3)
 
 #### Create a basic scatter plot between Value and Urbanization to understand how they are correlated.
 ```{r}
- plot(ghg.sub3$Value~ghg.sub3$Urbanization.)
+x= ghg.sub3$Urbanization.
+y= ghg.sub3$Value
+ plot(x,y,main="Urbanization % of all countries",xlab="Urbanization",ylab="value")
 ```
 ![CO2 Emissions vs Urbanization](https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Value_vs_Urban.png)
 
@@ -118,14 +120,18 @@ ghg.sub4<-subset(ghg.sub3, ghg.sub3$COUNTRY!='USA' & ghg.sub3$COUNTRY!='CHN')
 
 #### Create a scatter plot between value and urbanization with the new subset that we have created.
 ```{r}
- plot(ghg.sub4$Value~ghg.sub4$Urbanization.)
+x=ghg.sub4$Value
+y=ghg.sub4$Urbanization.
+plot(y,x,main="Urbanization % of all countries except USA and CHN",xlab="Urbanization",ylab="value")
 ```
 ![CO2 Emissions vs Urbanization no CHN or USA](https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Value_vs_Urban_NoUSA_CHN.png)
 
 #### A best fit line enables us to understand the positive correlation better.
 ```{r}
-plot(ghg.sub4$Value~ghg.sub4$Urbanization.)
-abline(lm(ghg.sub4$Value~ghg.sub4$Urbanization.), col="red")
+y = ghg.sub4$Value
+x =ghg.sub4$Urbanization.
+plot(x,y,main="Positive Correlation",xlab="Urbanization",ylab="value")
+abline(lm(x~y), col="red")
 ```
 ![Best Fit Line](https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/R%20Script/CO2_Value_vs_Urban_Best_Fit.png)
 
