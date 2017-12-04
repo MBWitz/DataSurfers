@@ -537,28 +537,31 @@ summary(ghg.sub3)
 ```{r}
 x= ghg.sub3$Urbanization.
 y= ghg.sub3$Value
- plot(x,y,main="Urbanization % of all countries",xlab="Urbanization",ylab="value")
+ plot(x,y,main="Urbanization % of all countries",cex=.25, xlab="Urbanization", ylab="value")
 ```
-![CO2 Emissions vs Urbanization](https://github.com/MBWitz/DataSurfers/blob/master/Plots/Rplot_basic_co2_urbanization.PNG)
-#### Create another subset by removing outliers such as China and USA.
+This plot seems to show an overall positive correlation between urbanization and CO2 emissions, but most of the data is very condensed at the bottom of the graph due to outliers. We will eliminate the outliers so that the remainder of the data can be more spread out.
+
+#### Create another subset by eliminating USA and China. 
 ```{r}
 ghg.sub4<-subset(ghg.sub3, ghg.sub3$COUNTRY!='USA' & ghg.sub3$COUNTRY!='CHN')
-```
+``` 
 
 #### Create a scatter plot between value and urbanization with the new subset that we have created.
 ```{r}
 x=ghg.sub4$Value
 y=ghg.sub4$Urbanization.
-plot(y,x,main="Urbanization % of all countries except USA and CHN",xlab="Urbanization",ylab="value")
+plot(y,x,main="Urbanization % of all countries except USA and CHN",cex=.25, xlab="Urbanization",ylab="value")
 ```
+This plot confirms the positive correlation overall between urbanization and CO2 emissions.
 
-#### A best fit line enables us to understand the positive correlation better.
+#### A best fit line enables us to see the positive correlation better.
 ```{r}
 y = ghg.sub4$Value
 x =ghg.sub4$Urbanization.
-plot(x,y,main="Positive Correlation",xlab="Urbanization",ylab="value")
-abline(lm(x~y), col="red")
+plot(x,y,main="Positive Correlation", cex=.25, xlab="Urbanization",ylab="value")
+abline(lm(y~x), col="red")
 ```
+We have not distinguished countries in these plots as we are looking for overall trend. The next set of plots shows how individual countries reflect increasing emissions with increasing urbanization rates. 
 
 #### Find the correlation value to confirm that it is positive.
 ```{r}
