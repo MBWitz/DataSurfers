@@ -1,12 +1,9 @@
 
-#To read the csv file in to R
-nox<-read_csv("E:/MISF/air_ghg_data_w_regions_new1230.csv")
-
 #Get the sunset of rows that are having the subject as NOX
-nox.sub <- nox[nox$SUBJECT == 'NOX', ]
+nox.sub <- ghg[ghg$SUBJECT == 'NOX', ]
 
 #Get the sunset of rows that are having the subject as SOX
-nox.sub1 <- nox[nox$SUBJECT == 'SOX', ]
+nox.sub1 <- ghg[ghg$SUBJECT == 'SOX', ]
 
 #Vertical merging of  rows that are having the subject as NOX and SOX
 nox_sox<-rbind(nox.sub,nox.sub1)
@@ -63,7 +60,7 @@ ggplot(data=(nox_sox_OECD))+
   ylab("Millions of Tons")+
   geom_line(color="blue", mapping= aes(x= TIME , y= URBAN*(109052/13)), stat="identity")+
   theme(axis.title.y.right = element_text(color = "blue"),axis.text.y.right = element_text(color = "blue"))+
-  scale_y_continuous(name = expression("Millions of Tons"), sec.axis = sec_axis(~ . * 16/109052 ,name = "Urbanization %"),limits = c(37774,109052))+
+  scale_y_continuous(name = expression("Millions of Tons"), sec.axis = sec_axis(~ . * 16/109052 ,name = "Urbanization %"),limits = c(37774,109052))
 
 
 #This gives the plot that show relation between non-OECD countries and urbanization rate
