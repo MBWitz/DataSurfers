@@ -1,8 +1,8 @@
 
-#Get the sunset of rows that are having the subject as NOX
+#Get the subset of rows that are having the subject as NOX
 nox.sub <- ghg[ghg$SUBJECT == 'NOX', ]
 
-#Get the sunset of rows that are having the subject as SOX
+#Get the subset of rows that are having the subject as SOX
 nox.sub1 <- ghg[ghg$SUBJECT == 'SOX', ]
 
 #Vertical merging of  rows that are having the subject as NOX and SOX
