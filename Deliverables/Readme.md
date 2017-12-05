@@ -23,6 +23,9 @@ We will also use a table of world population by country from World Bank. This ta
 ##### Citation:
 The World Bank: Urban Population (% of Total): The United Nations Population Divisions World Urbanization Prospects. URL: https://data.worldbank.org/indicator/SP.POP.TOTL?page=2 (Accessed on 11 October 2017)
 
+Our analysis will attempt to answer the following questions:
+1. Which countries and regions contribute the most CO2 emissions, both on a total volume basis and from a per capita perspective? Do the top offenders have similar patterns of increasing and decreasing emissions?   
+2. 
 
 
 #### Contents:
