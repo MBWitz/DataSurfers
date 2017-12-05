@@ -15,7 +15,7 @@ We will supplement this data with a table of urbanization by per cent of populat
 We will also use a table of world population by country from World Bank. This table consists of 264 rows and 61 columns. Each row represents a country or a summary for a geographic region. Columns represent the country name and code, the indicator name and code, and the population of each country or region for each year from 1965 through 2017.
 
 Our analysis will attempt to answer the following questions:
-1. Which countries and regions contribute the most CO2 emissions, both on a total volume basis and from a per capita perspective? Do the top offenders have similar patterns of increasing and decreasing emissions?   
+1. Which countries and regions contribute the most Carbon Dioxide (CO2) emissions, both on a total volume basis and from a per capita perspective? Do the top offenders have similar patterns of increasing and decreasing emissions?   
 2. Are urbanization rates correlated to carbon dioxide emissions?
 3. Are Nitrogen Oxides (NOX) and Sulphur Oxides (SOX) emissions highest from OECD (Organization for Economic Cooperation and Development) member countries? Are these emissions correlated to urbanization?
 
