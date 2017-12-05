@@ -17,7 +17,7 @@ We will also use a table of world population by country from World Bank. This ta
 Our analysis will attempt to answer the following questions:
 1. Which countries and regions contribute the most CO2 emissions, both on a total volume basis and from a per capita perspective? Do the top offenders have similar patterns of increasing and decreasing emissions?   
 2. Are urbanization rates correlated to carbon dioxide emissions?
-3. 
+3. Are Nitrogen Oxides (NOX) and Sulphur Oxides (SOX) emissions highest from OECD (Organization for Economic Cooperation and Development) member countries? Are these emissions correlated to urbanization?
 
 
 #### Contents:
