@@ -268,6 +268,21 @@ nox_sox_non_OECD = subset(m4,OECD_Flag == "0")
 nox_sox_OECD = subset(m4,OECD_Flag == "1")
 ```
 
+###### Aggregate or Sum the values for each country over the years. This gives the sum of values of emmission of NOX or SOX gases for the country.
+```{r}
+nox_sox_grouped<-aggregate(nox_sox_req$Value, by=list(TIME=nox_sox_req$TIME,OECD_Flag=nox_sox_req$OECD_Flag), FUN=sum)
+```
+###### This shows the plot that show variation between OECD and NON-OECD Countries
+```{r}
+ggplot(data = nox_sox_grouped, aes(x = TIME, y = x, group = factor(OECD_Flag))) +
+  xlab("Year") + ylab("Millions of Tons") +
+  geom_line(aes(color = factor(OECD_Flag)))+
+  scale_color_discrete(name = "OECD Indicator", labels = c("NON-OECD", "OECD"))
+```
+![Comparision between OECD and non OECD countries in terms or emmissions](https://github.com/MBWitz/DataSurfers/blob/master/Plots/OecdvsnonOecd_new.png)
+
+
+The plot shows the emmissions of nox and sox gases made by OECD countries to that of non OECD countries from 1990 to 2014. Resultant plot shows decreasing emissions for both Nitrogen Oxide and Sulphur Oxide emissions, with OECD member countries NOX and SOX emissions lower than non-OECD member nations. The main reason for this is that China is in the non-OECD group.
 ###### This gives the plot that show relation between OECD countries and urbanization rate.
 ```{r}
 ggplot(data=(nox_sox_OECD))+
