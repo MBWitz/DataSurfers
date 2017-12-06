@@ -740,7 +740,7 @@ ggplot(data=(nox_sox_non_OECD))+
   geom_line(color="blue", mapping= aes(x= TIME , y= URBAN*(109052/13)), stat="identity")+
   theme(axis.title.y.right = element_text(color = "blue"),axis.text.y.right = element_text(color = "blue"))+
   scale_y_continuous(labels=scales::comma,name = expression("Millions of Tons"), sec.axis = sec_axis(~ . * 16/109052 ,name = "Urbanization %"),limits = c(37774,109052))+
-  ggtitle("Emmissions by OECD vs Urbanization")
+  ggtitle("Emmissions by NON-OECD vs Urbanization")
 ```
 
 
