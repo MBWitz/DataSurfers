@@ -710,7 +710,9 @@ nox_sox_grouped<-aggregate(nox_sox_req$Value, by=list(TIME=nox_sox_req$TIME,OECD
 ggplot(data = nox_sox_grouped, aes(x = TIME, y = x, group = factor(OECD_Flag))) +
   xlab("Year") + ylab("Millions of Tons") +
   geom_line(aes(color = factor(OECD_Flag)))+
-  scale_color_discrete(name = "OECD Indicator", labels = c("NON-OECD", "OECD"))
+  scale_color_discrete(name = "OECD Indicator", labels = c("NON-OECD", "OECD"))+
+  ggtitle("Emmissions by OECD vs NON-OECD")+
+  scale_y_continuous(labels=scales::comma)
 ```
 
 The plot shows the emmissions of nox and sox gases made by OECD countries to that of non OECD countries from 1990 to 2014. Resultant plot shows decreasing emissions for both Nitrogen Oxide and Sulphur Oxide emissions, with OECD member countries NOX and SOX emissions lower than non-OECD member nations. The main reason for this is that China is in the non-OECD group.
@@ -722,7 +724,8 @@ ggplot(data=(nox_sox_OECD))+
   ylab("Millions of Tons")+
   geom_line(color="blue", mapping= aes(x= TIME , y= URBAN*(109052/13)), stat="identity")+
   theme(axis.title.y.right = element_text(color = "blue"),axis.text.y.right = element_text(color = "blue"))+
-  scale_y_continuous(name = expression("Millions of Tons"), sec.axis = sec_axis(~ . * 16/109052 ,name = "Urbanization %"),limits = c(37774,109052))
+  scale_y_continuous(labels=scales::comma,name = expression("Millions of Tons"), sec.axis = sec_axis(~ . * 16/109052 ,name = "Urbanization %"),limits = c(37774,109052))+
+  ggtitle("Emmissions by OECD vs Urbanization")
 ```
 
 
@@ -736,7 +739,8 @@ ggplot(data=(nox_sox_non_OECD))+
   ylab("Millions of Tons")+
   geom_line(color="blue", mapping= aes(x= TIME , y= URBAN*(109052/13)), stat="identity")+
   theme(axis.title.y.right = element_text(color = "blue"),axis.text.y.right = element_text(color = "blue"))+
-  scale_y_continuous(name = expression("Millions of Tons"), sec.axis = sec_axis(~ . * 16/109052 ,name = "Urbanization %"),limits = c(37774,109052))
+  scale_y_continuous(labels=scales::comma,name = expression("Millions of Tons"), sec.axis = sec_axis(~ . * 16/109052 ,name = "Urbanization %"),limits = c(37774,109052))+
+  ggtitle("Emmissions by OECD vs Urbanization")
 ```
 
 
