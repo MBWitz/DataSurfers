@@ -281,7 +281,7 @@ ggplot(data = nox_sox_grouped, aes(x = TIME, y = x, group = factor(OECD_Flag))) 
   ggtitle("Emmissions by OECD vs NON-OECD")+
   scale_y_continuous(labels=scales::comma)
 ```
-![Comparision between OECD and non OECD countries in terms or emmissions](https://github.com/MBWitz/DataSurfers/blob/master/Plots/OecdvsnonOecd_new.png)
+![Comparision between OECD and non OECD countries in terms or emmissions](https://github.com/MBWitz/DataSurfers/blob/master/Plots/OECSvsNON.png)
 
 
 The plot shows the emmissions of nox and sox gases made by OECD countries to that of non OECD countries from 1990 to 2014. Resultant plot shows decreasing emissions for both Nitrogen Oxide and Sulphur Oxide emissions, with OECD member countries NOX and SOX emissions lower than non-OECD member nations. The main reason for this is that China is in the non-OECD group.
@@ -296,7 +296,7 @@ ggplot(data=(nox_sox_OECD))+
   ggtitle("Emmissions by OECD vs Urbanization")
 ```
 
-![NOX and SOX emissions OED vs Urbanization](https://github.com/MBWitz/DataSurfers/blob/master/Plots/OECD_Plot_1_new.png)
+![NOX and SOX emissions OED vs Urbanization](https://github.com/MBWitz/DataSurfers/blob/master/Plots/OECDvsURB.png)
 
 The plot shows the emmissions of nox and sox gases made by OECD countries to that of Urbanization percentage from 1990 to 2014. Resultant plot shows there are two scales or y axes for displaying the relation between OED countries emmision and their urbanization rate. As the percentage value is very less, I have tried to multiply the scale by 109052/13 where the numerator and denominator are the maximum values of nox,sox emmission and urbanization rate. It looks like some values are missing. They are not actually missiing but they did not fit the scale given. I did not try change the scale as there should be same gradient scale between OECD vs Urbanization and non-OECS vs Urbanization. The urbanization of OECD countries is high in the initial stages and has a gradual increase but did not have a sudden increase. However, plot shows that the emmissions started decreasing with increasing urbanization rate.
 
@@ -312,6 +312,6 @@ ggplot(data=(nox_sox_non_OECD))+
   ggtitle("Emmissions by NON-OECD vs Urbanization")
 ```
 
-![NOX and SOX emissions non OED vs Urbanization](https://github.com/MBWitz/DataSurfers/blob/master/Plots/nonOECD_plot2_new.png)
+![NOX and SOX emissions non OED vs Urbanization](https://github.com/MBWitz/DataSurfers/blob/master/Plots/nonoecdvsurb.png)
 
 The plot shows the emmissions of nox and sox gases made by OECD countries to that of Urbanization percentage from 1990 to 2014. Resultant plot shows there are two scales or y axes for displaying the relation between non-OED countries emmision and their urbanization rate. As the percentage value is very less, I have tried to multiply the scale by 109052/13 where the numerator and denominator are the maximum values of nox,sox emmission and urbanization rate. It looks like some values are missing. They are not actually missing but they did not fit the scale given. I did not try change the scale as there should be same gradient scale between OECD vs Urbanization and non-OECD vs Urbanization. The urbanization of non-OECD countries is low in the initial stages and has a gradual increase but did not have a sudden increase. However, plot shows that the emmissions started decreasing with increasing urbanization rate.
