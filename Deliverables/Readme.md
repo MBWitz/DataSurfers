@@ -2,7 +2,7 @@
 
 #### Team Members:
 1. Anuja Janet
-2. Srinivas Keerthy Vishnubhotla
+2. Srinivasa Keerthy Vishnubhotla
 3. Molly Witzenburg
 
 #### License: https://github.com/MBWitz/DataSurfers/blob/master/LICENSE
