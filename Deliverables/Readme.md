@@ -21,7 +21,7 @@ Our analysis will attempt to answer the following questions:
 
 
 #### Contents:
-1. Data cleaning and R analysis: http://htmlpreview.github.com/https://github.com/MBWitz/DataSurfers/blob/master/DataCleaningAndRScript_DataSurfers.html
+1. Data cleaning and R analysis: http://htmlpreview.github.io/?https://github.com/MBWitz/DataSurfers/blob/master/DataCleaningAndRScript_DataSurfers.html
 2. Audience Persona: https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/Audience%20Persona/DataSurfers_AudiencePersona_new.pdf
 3. Summary: https://github.com/MBWitz/DataSurfers/blob/master/DataSurfers%20Project%20Summary.pdf
 4. Presentation:
