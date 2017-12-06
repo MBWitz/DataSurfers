@@ -23,6 +23,6 @@ Our analysis will attempt to answer the following questions:
 #### Contents:
 1. Data cleaning and R analysis: 
 2. Audience Persona: https://github.com/MBWitz/DataSurfers/blob/master/Deliverables/Audience%20Persona/DataSurfers_AudiencePersona_new.pdf
-3. Summary: https://github.com/MBWitz/DataSurfers/blob/master/Data%20Surfers%20Project%20Summary.pdf
+3. Summary: https://github.com/MBWitz/DataSurfers/blob/master/DataSurfers%20Project%20Summary.pdf
 4. Presentation:
 5. Summary of Contributorship: https://github.com/MBWitz/DataSurfers/blob/master/Contributorship.md
