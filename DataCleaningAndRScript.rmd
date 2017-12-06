@@ -705,7 +705,8 @@ nox_sox_OECD = subset(m4,OECD_Flag == "1")
 ```{r}
 nox_sox_grouped<-aggregate(nox_sox_req$Value, by=list(TIME=nox_sox_req$TIME,OECD_Flag=nox_sox_req$OECD_Flag), FUN=sum)
 ```
-###### This shows the plot that show variation between OECD and NON-OECD Countries
+###### This shows the plot that show variation between OECD and NON-OECD Countries.
+
 ```{r}
 ggplot(data = nox_sox_grouped, aes(x = TIME, y = x, group = factor(OECD_Flag))) +
   xlab("Year") + ylab("Millions of Tons") +
@@ -714,7 +715,8 @@ ggplot(data = nox_sox_grouped, aes(x = TIME, y = x, group = factor(OECD_Flag))) 
 ```
 
 The plot shows the emmissions of nox and sox gases made by OECD countries to that of non OECD countries from 1990 to 2014. Resultant plot shows decreasing emissions for both Nitrogen Oxide and Sulphur Oxide emissions, with OECD member countries NOX and SOX emissions lower than non-OECD member nations. The main reason for this is that China is in the non-OECD group.
-###### This gives the plot that show relation between OECD countries and urbanization rate.
+
+###### This shows the plot that show relation between OECD and Urbanization rate.
 ```{r}
 ggplot(data=(nox_sox_OECD))+
   geom_line(color="black", mapping= aes(x= TIME , y= VALUE), stat="identity")+
@@ -727,6 +729,7 @@ ggplot(data=(nox_sox_OECD))+
 
 The plot shows the emmissions of nox and sox gases made by OECD countries to that of Urbanization percentage from 1990 to 2014. Resultant plot shows there are two scales or y axes for displaying the relation between OED countries emmision and their urbanization rate. As the percentage value is very less, I have tried to multiply the scale by 109052/13 where the numerator and denominator are the maximum values of nox,sox emmission and urbanization rate. It looks like some values are missing. They are not actually missiing but they did not fit the scale given. I did not try change the scale as there should be same gradient scale between OECD vs Urbanization and non-OECS vs Urbanization. The urbanization of OECD countries is high in the initial stages and has a gradual increase but did not have a sudden increase. However, plot shows that the emmissions started decreasing with increasing urbanization rate.
 
+###### This shows the plot that show relation between NON-OECD and Urbanization rate.
 
 ```{r}
 ggplot(data=(nox_sox_non_OECD))+
