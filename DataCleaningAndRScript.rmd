@@ -665,12 +665,10 @@ nox_sox_req$urbanized<-with(nox_sox_req, (nox_sox_req$Urbanization*nox_sox_req$P
 ```
 
 ##### Aggregate or Sum the values for all countries over the years. This gives the sum of values of emmission of NOX or SOX gases for the country.
-
 ```{r}
 nox_sox_grouped_value<-aggregate(nox_sox_req$Value, by=list(TIME=nox_sox_req$TIME,OECD_Flag=nox_sox_req$OECD_Flag), FUN=sum)
 ```
 ###### Column name for x is chnaged to value
-
 ```{r}
 colnames(nox_sox_grouped_value)[3] <- "VALUE";
 ```
