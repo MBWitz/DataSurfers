@@ -170,20 +170,20 @@ ghg.sub2014 <- ghg.sub2[ghg.sub2$TIME == 2014, ]
 top2014 <- tail(head(ghg.sub2014[order(ghg.sub2014$Value, decreasing= T),], n = 22), n=20)
 ```
 ### Create a barchart of top 20 CO2 producing nation for 2014:
-```{r}
+```{r warnings=FALSE}
 barplot(top2014$Value, main="Top CO2 Producing Countries 2014", col = rainbow(20), space=0)  
 axis(1, at=.5:19.5, labels=top2014$COUNTRY)  
 ```
 
 ### Rank and plot top 20 CO2 producers for 2010:
-```{r}
+```{r warnings=FALSE}
 ghg.sub2010<-ghg.sub2[ghg.sub2$TIME == 2010, ]  
 top2010<-tail(head(ghg.sub2010[order(ghg.sub2010$Value, decreasing= T),], n = 22), n=20)  
 barplot(top2010$Value, main="Top CO2 Producing Countries 2010", col = rainbow(20), space = 0)  
 axis(1, at=.5:19.5, labels=top2010$COUNTRY)  
 ```
 ### Rank and plot top 20 CO2 producers for 2005:
-```{r}
+```{r warnings=FALSE}
 ghg.sub2005<-ghg.sub2[ghg.sub2$TIME == 2005, ]  
 top2005<-tail(head(ghg.sub2005[order(ghg.sub2005$Value, decreasing= T),], n = 22), n=20)  
 barplot(top2005$Value, main="Top CO2 Producing Countries 2005", col = rainbow(20), space = 0)  
@@ -191,14 +191,14 @@ axis(1, at=.5:19.5, labels=top2005$COUNTRY)
 ```
 
 ### Rank and plot top 20 CO2 producers for 2000:
-```{r}
+```{r warnings=FALSE}
 ghg.sub2000<-ghg.sub2[ghg.sub2$TIME == 2000, ]  
 top2000<-tail(head(ghg.sub2000[order(ghg.sub2000$Value, decreasing= T),], n = 22), n=20)  
 barplot(top2000$Value, main="Top CO2 Producing Countries 2000", col = rainbow(20), space = 0)  
 axis(1, at=.5:19.5, labels=top2000$COUNTRY)  
 
 ### Rank and plot top 20 CO2 producers for 1995:
-```{r}
+```{r warnings=FALSE}
 ghg.sub1995<-ghg.sub2[ghg.sub2$TIME == 1995, ]  
 top1995<-tail(head(ghg.sub1995[order(ghg.sub1995$Value, decreasing= T),], n = 22), n=20)  
 barplot(top1995$Value, main="Top CO2 Producing Countries 1995", col = rainbow(20), space = 0)  
@@ -206,7 +206,7 @@ axis(1, at=.5:19.5, labels=top1995$COUNTRY)
 ```
 
 ### Rank and plot top 20 CO2 producers for 1990:
-```{r}
+```{r warnings=FALSE}
 ghg.sub1990<-ghg.sub2[ghg.sub2$TIME == 1990, ]  
 top1990<-tail(head(ghg.sub1990[order(ghg.sub1990$Value, decreasing= T),], n = 22), n=20)  
 barplot(top1990$Value, main="Top CO2 Producing Countries 1990", col = rainbow(20), space = 0)  
@@ -214,7 +214,7 @@ axis(1, at=.5:19.5, labels=top1990$COUNTRY)
 ```
 
 ### Rank and plot top 20 CO2 producers for 1985:
-```{r}
+```{r warnings=FALSE}
 ghg.sub1985<-ghg.sub2[ghg.sub2$TIME == 1985, ]  
 top1985<-tail(head(ghg.sub1985[order(ghg.sub1985$Value, decreasing= T),], n = 22), n=20)  
 barplot(top1985$Value, main="Top CO2 Producing Countries 1985", col = rainbow(20), space = 0)  
@@ -222,7 +222,7 @@ axis(1, at=.5:19.5, labels=top1985$COUNTRY)
 ```
 
 ### Rank and plot top 20 CO2 producers for 1980:
-```{r}
+```{r warnings=FALSE}
 ghg.sub1980<-ghg.sub2[ghg.sub2$TIME == 1980, ]  
 top1980<-tail(head(ghg.sub1980[order(ghg.sub1980$Value, decreasing= T),], n = 22), n=20)  
 barplot(top1980$Value, main="Top CO2 Producing Countries 1980", col = rainbow(20), space = 0)  
@@ -230,7 +230,7 @@ axis(1, at=.5:19.5, labels=top1980$COUNTRY)
 ```
 
 ### Rank and plot top 20 CO2 producers for 1975:
-```{r}
+```{r warnings=FALSE}
 ghg.sub1975<-ghg.sub2[ghg.sub2$TIME == 1975, ]  
 top1975<-tail(head(ghg.sub1975[order(ghg.sub1975$Value, decreasing= T),], n = 22), n=20)  
 barplot(top1975$Value, main="Top CO2 Producing Countries 1975", col = rainbow(20), space = 0)  
@@ -238,7 +238,7 @@ axis(1, at=.5:19.5, labels=top1975$COUNTRY)
 ```
 
 ### Rank and plot top 20 CO2 producers for 1971:
-```{r}
+```{r warnings=FALSE}
 ghg.sub1971<-ghg.sub2[ghg.sub2$TIME == 1971, ]  
 top1971<-tail(head(ghg.sub1971[order(ghg.sub1971$Value, decreasing= T),], n = 22), n=20)  
 barplot(top1971$Value, main="Top CO2 Producing Countries 1971", col = rainbow(20), space = 0)  
@@ -246,7 +246,7 @@ axis(1, at=.5:19.5, labels=top1971$COUNTRY)
 ```
 
 ### Rank the top 50 CO2 Per Capita producers from 2014, store in top2014PC dataframe:
-```{r}
+```{r warnings=FALSE}
 top2014PC <-head(ghg.sub2014[order(ghg.sub2014$CO2percap, decreasing= T),], n = 50)
 ```
 
@@ -258,29 +258,29 @@ do some analysis based on geographic region.
 We had to find a list of countries by region, consolidate the regions, then append that information to our data file.
 
 ### Aggregate 2014 CO2 Emissions and Population by Region:
-```{r}
+```{r warnings=FALSE}
 Region2014 <- with(ghg.sub2014, (aggregate(list(Population=ghg.sub2014$Population,Value=ghg.sub2014$Value), 
                                            by=list(Region=ghg.sub2014$Region), FUN=sum)))
 ```
 
 ### Calculate 2014 CO2 Emissions Per Capita by Region:
-```{r}
+```{r warnings=FALSE}
 Region2014$CO2percap <- with(Region2014, (Region2014$Value/Region2014$Population)*1000000)  
 Region2014<-Region2014[order(Region2014$CO2percap, decreasing= T),]  
 ```
 ### Create subsets of millions of tons CO2 emissions for just the USA:
-```{r}
+```{r warnings=FALSE}
 ghg.subUSA <-ghg.sub2[ghg.sub2$COUNTRY == 'USA', ]
 ```
 
 ### plot the USA CO2 emissions over time with year as labels on x-axis :
-```{r}
+```{r warnings=FALSE}
 plot(ghg.subUSA$Value,  main="USA CO2 Production", type = "l",  xaxt = "n")
 axis(1, at=1:55, labels=ghg.subUSA$TIME)
 ```
 
 ### Create a subset for China and plot their emissions over time:
-```{r}
+```{r warnings=FALSE}
 ghg.subCHN <-ghg.sub2[ghg.sub2$COUNTRY == 'CHN', ]  
 plot(ghg.subCHN$Value,  main="China CO2 Production", type = "l",  xaxt = "n")  
 axis(1, at=1:44, labels=ghg.subCHN$TIME)  
@@ -289,49 +289,49 @@ axis(1, at=1:44, labels=ghg.subCHN$TIME)
 _Note that Chinese CO2 production drastically increased in the early 2000's_
 
 ### Create a subset for India and plot their emissions over time:
-```{r}
+```{r warnings=FALSE}
 ghg.subIND <-ghg.sub2[ghg.sub2$COUNTRY == 'IND', ]  
 plot(ghg.subIND$Value,  main="India CO2 Production", type = "l",  xaxt = "n")  
 axis(1, at=1:44, labels=ghg.subIND$TIME)  
 ```
 
 ### Create a subset for Russia and plot their emissions over time:
-```{r}
+```{r warnings=FALSE}
 ghg.subRUS <-ghg.sub2[ghg.sub2$COUNTRY == 'RUS', ]  
 plot(ghg.subRUS$Value,  main="Russia CO2 Production", type = "l",  xaxt = "n")  
 axis(1, at=1:25, labels=ghg.subRUS$TIME)  
 ```
 
 ### Create a subset for Germany and plot their emissions over time:
-```{r}
+```{r warnings=FALSE}
 ghg.subDEU <-ghg.sub2[ghg.sub2$COUNTRY == 'DEU', ]  
 plot(ghg.subDEU$Value,  main="Germany CO2 Production", type = "l",  xaxt = "n")  
 axis(1, at=1:55, labels=ghg.subDEU$TIME)  
 ```
 
 ### Create a subset for Japan and plot their emissions over time:
-```{r}
+```{r warnings=FALSE}
 ghg.subJPN <-ghg.sub2[ghg.sub2$COUNTRY == 'JPN', ]  
 plot(ghg.subJPN$Value,  main="Japan CO2 Production", type = "l",  xaxt = "n")  
 axis(1, at=1:55, labels=ghg.subJPN$TIME)  
 ```
 
 ### Create a subset for United Kingdom and plot their emissions over time:
-```{r}
+```{r warnings=FALSE}
 ghg.subGBR <-ghg.sub2[ghg.sub2$COUNTRY == 'GBR', ]  
 plot(ghg.subGBR$Value,  main="United Kingdom CO2 Production", type = "l",  xaxt = "n")  
 axis(1, at=1:55, labels=ghg.subGBR$TIME)  
 ```
 
 ### World subset and graph:
-```{r}
+```{r warnings=FALSE}
 ghg.subWLD <- ghg.sub2[ghg.sub2$COUNTRY == 'WLD',]  
 plot(ghg.subWLD$Value, main="World CO2 Production", type = "l", xaxt = "n")  
 axis(1, at=1:44, labels=ghg.subWLD$TIME)   
 ```
 
 ### OED subset and graph:
-```{r}
+```{r warnings=FALSE}
 ghg.subOED <- ghg.sub2[ghg.sub2$COUNTRY == 'OED',]  
 plot(ghg.subOED$Value,  main="OECD Member CO2 Production", type = "l", xaxt = "n")  
 axis(1, at=1:44, labels=ghg.subOED$TIME)  
@@ -381,12 +381,12 @@ ghg1.sub3 <- ghg.sub2[ghg.sub2$TIME>2000 & ghg.sub2$TIME<2015, ]
 ```
 
 ### Scatterplot between time and value
-```{r}
+```{r warnings=FALSE}
 plot(ghg1.sub3$Value~ghg1.sub3$TIME)
 ```
 
 ### Scatterplot between region and value,This plot explains about the CO2 emission content based on region.
-```{r}
+```{r warnings=FALSE}
 plot(ghg1.sub3$Value~ghg1.sub3$Region)
 ```
 
@@ -401,7 +401,7 @@ top52012 <- head(ghg1.sub2012[order(ghg1.sub2012$Urbanization., decreasing= T),]
 ```
 
 ### Create a barchart of Top Urbanizied Regions 2012:
-```{r}
+```{r warnings=FALSE}
 barplot(top52012$Urbanization., main="Top Urbanizied Countries 2012", col = rainbow(15), space=0)
 axis(1, at= .5:14.5, labels=top52012$COUNTRY)
 ```
@@ -449,7 +449,8 @@ nox_sox_grouped[which.max(nox_sox_grouped$x),]
 ghg <- read.csv("https://raw.githubusercontent.com/MBWitz/DataSurfers/master/air_ghg_data_w_regions_new1230.csv")
 ```
 
-### Question 1: Which countries and regions contribute the most CO2 emissions, both on a total volume basis and from a per capita perspective? Do the top offenders have similar patterns of increasing and decreasing emissions? 
+# Q1: 
+## Which countries and regions contribute the most CO2 emissions, both on a total volume basis and from a per capita perspective? Do the top offenders have similar patterns of increasing and decreasing emissions? 
 
 
 #### Create a subset of just CO2 values:
@@ -474,7 +475,7 @@ summary(top7CO2)
 ```
 
 #### Line plots of CO2 emissions in top 7 countries, different color for each country:
-```{r}
+```{r warnings=FALSE}
 require(ggplot2)  
 ggplot(data = top7CO2, aes(x = TIME, y = Value, group = COUNTRY)) + xlab("Year") + ylab("Millions of Tons") + ggtitle("Total CO2 Emissions", subtitle="Top 7 Producers") + geom_line(aes(color = COUNTRY)) 
 ```  
@@ -486,7 +487,7 @@ Russia's data starts in 1990 (after the collapse of communism in 1989)
 Japan, Germany, and Great Britain have similar and relatively consistent emissions patterns, though Japan had a slight increase while Germany had a decrease, causing them to switch places in the rankings.    
 
 #### Calculate per capita CO2 emissions for top7 and plot them:    
-```{r}
+```{r warnings=FALSE}
 top7CO2$CO2percap <- with(top7CO2, (top7CO2$Value/top7CO2$Population)*1000000)     
 ggplot(data = top7CO2, aes(x = TIME, y = CO2percap, group = COUNTRY)) +
      xlab("Year") + ylab("CO2 Per Capita") + 
@@ -497,7 +498,7 @@ ggplot(data = top7CO2, aes(x = TIME, y = CO2percap, group = COUNTRY)) +
 When considering per capita CO2 emissions, the USA is consistently significantly higher than any other country of the top 7 CO2 emissions producing countries. The USA, Germany, and Great Britain exhibit decreasing trend over time, while Japan and India are growing slowly, and China grew quite rapidly in the last two decades. Russia has not exhibited a consistent pattern, but their CO2 emissions per capita are consistently among the highest. 
 
 #### Summarize CO2 Emissions by Region, eliminating OECD member nation data and World Data:
-```{r}
+```{r warnings=FALSE}
 ghg.sub3<-ghg.sub2[ghg.sub2$COUNTRY!="WLD"&ghg.sub2$COUNTRY!="OED",]  
 ghg.region<- with(ghg.sub3,(aggregate(list(Population=ghg.sub3$Population,Value=ghg.sub3$Value), by=list(Region=ghg.sub3$Region, TIME=ghg.sub3$TIME), FUN=sum)))
 ```
@@ -508,7 +509,7 @@ ghg.region$CO2percap <- with(ghg.region, (ghg.region$Value/ghg.region$Population
 ```
  
 #### Graph CO2 emissions by region and per Capita by region starting in 1971:
-```{r} 
+```{r warnings=FALSE} 
 ghg.region<-ghg.region[ghg.region$TIME>=1971,]
 ggplot(data = ghg.region, aes(x = TIME, y = Value, group = Region)) +
      xlab("Year") + ylab("Millions of Tons") +
@@ -516,7 +517,7 @@ ggplot(data = ghg.region, aes(x = TIME, y = Value, group = Region)) +
      geom_line(aes(color = Region))
 ```  
 
-```{r}
+```{r warnings=FALSE}
 ggplot(data = ghg.region, aes(x = TIME, y = CO2percap, group = Region)) +
      xlab("Year") + ylab("CO2 Per Capita") + 
      ggtitle("CO2 Emissions per Capita", subtitle="Global Regions") + 
@@ -528,7 +529,8 @@ The sudden and sharp increase in CO2 emissions in Europe in 1990 is due to the i
 Regions that are primarily made up of less industrial economies have much lower emissions overall and per capita, as would be expected. However, many of these regions are showing growth of their emissions, perhaps reflecting the relocation of much manufacturing out of industrialized nations like the USA into less developed economies with laxer environmental regulation.  
 The regions that have been the top four since 1971 have seen similar decrease patterns for the last decade in both total CO2 emissions and per capita emissions.
 
-### Question 2: Are urbanization rates correlated to carbon dioxide emissions?
+# Q2  
+## Are urbanization rates correlated to carbon dioxide emissions?
 
 #### Create a subset by removing WLD ans OED countries.
 ```{r}
@@ -541,7 +543,7 @@ summary(ghg.sub3)
 ```
 
 #### Create a basic scatter plot between Value and Urbanization to understand how they are correlated.
-```{r}
+```{r warning=FALSE}
 x= ghg.sub3$Urbanization.
 y= ghg.sub3$Value
  plot(x,y,main="Urbanization % of all countries",cex=.25, xlab="Urbanization", ylab="value")
@@ -554,7 +556,7 @@ ghg.sub4<-subset(ghg.sub3, ghg.sub3$COUNTRY!='USA' & ghg.sub3$COUNTRY!='CHN')
 ``` 
 
 #### Create a scatter plot between value and urbanization with the new subset that we have created.
-```{r}
+```{r warning=FALSE}
 x=ghg.sub4$Value
 y=ghg.sub4$Urbanization.
 plot(y,x,main="Urbanization % of all countries except USA and CHN",cex=.25, xlab="Urbanization",ylab="value")
@@ -562,7 +564,7 @@ plot(y,x,main="Urbanization % of all countries except USA and CHN",cex=.25, xlab
 This plot confirms the positive correlation overall between urbanization and CO2 emissions.
 
 #### A best fit line enables us to see the positive correlation better.
-```{r}
+```{r warning=FALSE}
 y = ghg.sub4$Value
 x =ghg.sub4$Urbanization.
 plot(x,y,main="Positive Correlation", cex=.25, xlab="Urbanization",ylab="value")
@@ -575,12 +577,12 @@ We have not distinguished countries in these plots as we are looking for overall
 cor(ghg.sub4$Value, ghg.sub4$Urbanization) # =.22
 ```
 
-```{r}
+```{r warning=FALSE}
 require(ggplot2)
 ```
 
 #### Graph CO2 and Urbanization percentage by country, showing different countries in different colors.
-```{r}
+```{r warning=FALSE}
 ggplot(data = ghg.sub3, aes(x = Urbanization., y = Value, group = COUNTRY)) +
 xlab("Urbaniztion") + ylab("Millions of Tons") + theme(legend.position="none") +
 ggtitle("Total CO2 Emissions vs. Urbanization", subtitle="All Countries") +
@@ -595,7 +597,7 @@ The legend was eliminated because there are so many countries, the graph gets to
 ghg.sub5<-ghg.sub3[ghg.sub3$Value>=500, ]
 ```
 #### Graph CO2 and Urbanization percentage with new subset.
-```{r}
+```{r warning=FALSE}
 ggplot(data = ghg.sub5, aes(x = Urbanization., y = Value, group = COUNTRY))+
 xlab("Urbanization") + ylab("Millions of Tons") + theme(legend.position='right')+ ylim(0,5000)+
 ggtitle("Total CO2 Emissions vs Urbanization", subtitle="CO2 Emissions > 500 million tonnes")+ geom_line(aes(color = COUNTRY))
@@ -609,7 +611,7 @@ This plot makes it easier to visualize the positive correlation between Urbaniza
 ghg.sub6<-ghg.sub3[ghg.sub3$Population>100000000, ]
 ```
 #### Plot Graph for the new subset having population greater than 100 million
-```{r}
+```{r warning=FALSE}
 ggplot(data = ghg.sub6, aes(x = Urbanization., y = Value, group = COUNTRY)) +
 xlab("Urbaniztion") + ylab("Millions of Tons") + theme(legend.position="right") +
 ggtitle("Total CO2 Emissions vs. Urbanization", subtitle="Highly populated Countries") +
@@ -623,7 +625,7 @@ This plot shows that highly populated countries vary differently based on their 
 ghg.sub7<-ghg.sub3[ghg.sub3$Population<1000000, ]
 ```
 #### Plot Graph for the new subset having population less than 10 million
-```{r}
+```{r warning=FALSE}
 ggplot(data = ghg.sub7, aes(x = Urbanization., y = Value, group = COUNTRY)) +
 xlab("Urbaniztion") + ylab("Millions of Tons") + theme(legend.position="right") +
 ggtitle("Total CO2 Emissions vs. Urbanization ", subtitle="Less Populated Countries") +
@@ -632,7 +634,8 @@ ggtitle("Total CO2 Emissions vs. Urbanization ", subtitle="Less Populated Countr
 This plot shows that less populated countries are mostly urbanized( 12 out of 13). Luxembourg country has a sudden decrease in CO2 emissions. Out of 13 countries, 3 countries show increase in their CO2 emissions with Urbanization almost remaining constant.
 
 
-### Question 3: Are Nitrogen Oxides (NOX) and Sulphur Oxides (SOX) emissions highest from OECD (Organization for Economic Cooperation and Development) member countries? Are these emissions correlated to urbanization?
+# Q3: 
+## Are Nitrogen Oxides (NOX) and Sulphur Oxides (SOX) emissions highest from OECD (Organization for Economic Cooperation and Development) member countries? Are these emissions correlated to urbanization?
 
 #### Create a subset of just Nitrogen Oxide Emissions data:
 ```{r}
@@ -665,48 +668,48 @@ nox_sox_req$urbanized<-with(nox_sox_req, (nox_sox_req$Urbanization*nox_sox_req$P
 ```
 
 ##### Aggregate or Sum the values for all countries over the years. This gives the sum of values of emmission of NOX or SOX gases for the country.
+
 ```{r}
 nox_sox_grouped_value<-aggregate(nox_sox_req$Value, by=list(TIME=nox_sox_req$TIME,OECD_Flag=nox_sox_req$OECD_Flag), FUN=sum)
 ```
+###### Column name for x is chnaged to value
 
-##### Column name for x is chnaged to value
 ```{r}
 colnames(nox_sox_grouped_value)[3] <- "VALUE";
 ```
 
-##### Aggregate or Sum the urbanzed poplation for all  countries over the years. This gives the percentages of urbanized people in all countries in the year.
+###### Aggregate or Sum the urbanzed poplation for all  countries over the years. This gives the percentages of urbanized people in all countries in the year.
 
 ```{r}
 nox_sox_grouped_urban<-aggregate(((nox_sox_req$urbanized/nox_sox_req$YearPopulation)*100), by=list(TIME=nox_sox_req$TIME,OECD_Flag=nox_sox_req$OECD_Flag), FUN=sum)
 ```
 
-##### Column name for x is chnaged to URBAN
+###### Column name for x is chnaged to URBAN
 
 ```{r}
 colnames(nox_sox_grouped_urban)[3] <- "URBAN";
 ```
-##### Dataframes nox_sox_grouped_urban and nox_sox_grouped_value are merged into m4
+###### Dataframes nox_sox_grouped_urban and nox_sox_grouped_value are merged into m4
 ```{r}
 m4<-merge(nox_sox_grouped_value,nox_sox_grouped_urban)
 ```
 
-##### Seperating data for non OECD countries
+###### Seperating data for non OECD countries
 ```{r}
 nox_sox_non_OECD = subset(m4,OECD_Flag == "0")
 ```
 
-##### Seperating data for OECD countries
+###### Seperating data for OECD countries
 ```{r}
 nox_sox_OECD = subset(m4,OECD_Flag == "1")
 ```
 
-##### Aggregate or Sum the values for each country over the years. This gives the sum of values of emmission of NOX or SOX gases for the country.
+###### Aggregate or Sum the values for each country over the years. This gives the sum of values of emmission of NOX or SOX gases for the country.
 ```{r}
 nox_sox_grouped<-aggregate(nox_sox_req$Value, by=list(TIME=nox_sox_req$TIME,OECD_Flag=nox_sox_req$OECD_Flag), FUN=sum)
 ```
-##### This shows the plot that show variation between OECD and NON-OECD Countries.
-
-```{r}
+###### This shows the plot that show variation between OECD and NON-OECD Countries
+```{r warnings=FALSE}
 ggplot(data = nox_sox_grouped, aes(x = TIME, y = x, group = factor(OECD_Flag))) +
   xlab("Year") + ylab("Millions of Tons") +
   geom_line(aes(color = factor(OECD_Flag)))+
@@ -717,8 +720,8 @@ ggplot(data = nox_sox_grouped, aes(x = TIME, y = x, group = factor(OECD_Flag))) 
 
 The plot shows the emmissions of nox and sox gases made by OECD countries to that of non OECD countries from 1990 to 2014. Resultant plot shows decreasing emissions for both Nitrogen Oxide and Sulphur Oxide emissions, with OECD member countries NOX and SOX emissions lower than non-OECD member nations. The main reason for this is that China is in the non-OECD group.
 
-##### This shows the plot that show relation between OECD and Urbanization rate.
-```{r}
+###### This gives the plot that show relation between OECD countries and urbanization rate.
+```{r warnings=FALSE}
 ggplot(data=(nox_sox_OECD))+
   geom_line(color="black", mapping= aes(x= TIME , y= VALUE), stat="identity")+
   ylab("Millions of Tons")+
@@ -728,12 +731,11 @@ ggplot(data=(nox_sox_OECD))+
   ggtitle("Emmissions by OECD vs Urbanization")
 ```
 
-
 The plot shows the emmissions of nox and sox gases made by OECD countries to that of Urbanization percentage from 1990 to 2014. Resultant plot shows there are two scales or y axes for displaying the relation between OED countries emmision and their urbanization rate. As the percentage value is very less, I have tried to multiply the scale by 109052/13 where the numerator and denominator are the maximum values of nox,sox emmission and urbanization rate. It looks like some values are missing. They are not actually missiing but they did not fit the scale given. I did not try change the scale as there should be same gradient scale between OECD vs Urbanization and non-OECS vs Urbanization. The urbanization of OECD countries is high in the initial stages and has a gradual increase but did not have a sudden increase. However, plot shows that the emmissions started decreasing with increasing urbanization rate.
 
-##### This shows the plot that show relation between NON-OECD and Urbanization rate.
+###### This gives the plot that show relation between OECD countries and urbanization rate.
 
-```{r}
+```{r warnings=FALSE}
 ggplot(data=(nox_sox_non_OECD))+
   geom_line(color="black", mapping= aes(x= TIME , y= VALUE), stat="identity")+
   ylab("Millions of Tons")+
@@ -742,6 +744,5 @@ ggplot(data=(nox_sox_non_OECD))+
   scale_y_continuous(labels=scales::comma,name = expression("Millions of Tons"), sec.axis = sec_axis(~ . * 16/109052 ,name = "Urbanization %"),limits = c(37774,109052))+
   ggtitle("Emmissions by NON-OECD vs Urbanization")
 ```
-
 
 The plot shows the emmissions of nox and sox gases made by OECD countries to that of Urbanization percentage from 1990 to 2014. Resultant plot shows there are two scales or y axes for displaying the relation between non-OED countries emmision and their urbanization rate. As the percentage value is very less, I have tried to multiply the scale by 109052/13 where the numerator and denominator are the maximum values of nox,sox emmission and urbanization rate. It looks like some values are missing. They are not actually missing but they did not fit the scale given. I did not try change the scale as there should be same gradient scale between OECD vs Urbanization and non-OECD vs Urbanization. The urbanization of non-OECD countries is low in the initial stages and has a gradual increase but did not have a sudden increase. However, plot shows that the emmissions started decreasing with increasing urbanization rate.
