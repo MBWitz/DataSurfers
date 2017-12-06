@@ -1,9 +1,3 @@
-output:
-  html_document:
-    toc: true
-    toc_float: true
-    ```{r warning=FALSE}
-    ```
 
 # Data Cleaning:
 # 1. Description of Data Source
