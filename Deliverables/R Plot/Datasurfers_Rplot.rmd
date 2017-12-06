@@ -277,7 +277,9 @@ nox_sox_grouped<-aggregate(nox_sox_req$Value, by=list(TIME=nox_sox_req$TIME,OECD
 ggplot(data = nox_sox_grouped, aes(x = TIME, y = x, group = factor(OECD_Flag))) +
   xlab("Year") + ylab("Millions of Tons") +
   geom_line(aes(color = factor(OECD_Flag)))+
-  scale_color_discrete(name = "OECD Indicator", labels = c("NON-OECD", "OECD"))
+  scale_color_discrete(name = "OECD Indicator", labels = c("NON-OECD", "OECD"))+
+  ggtitle("Emmissions by OECD vs NON-OECD")+
+  scale_y_continuous(labels=scales::comma)
 ```
 ![Comparision between OECD and non OECD countries in terms or emmissions](https://github.com/MBWitz/DataSurfers/blob/master/Plots/OecdvsnonOecd_new.png)
 
@@ -290,7 +292,8 @@ ggplot(data=(nox_sox_OECD))+
   ylab("Millions of Tons")+
   geom_line(color="blue", mapping= aes(x= TIME , y= URBAN*(109052/13)), stat="identity")+
   theme(axis.title.y.right = element_text(color = "blue"),axis.text.y.right = element_text(color = "blue"))+
-  scale_y_continuous(name = expression("Millions of Tons"), sec.axis = sec_axis(~ . * 16/109052 ,name = "Urbanization %"),limits = c(37774,109052))
+  scale_y_continuous(labels=scales::comma,name = expression("Millions of Tons"), sec.axis = sec_axis(~ . * 16/109052 ,name = "Urbanization %"),limits = c(37774,109052))+
+  ggtitle("Emmissions by OECD vs Urbanization")
 ```
 
 ![NOX and SOX emissions OED vs Urbanization](https://github.com/MBWitz/DataSurfers/blob/master/Plots/OECD_Plot_1_new.png)
@@ -305,7 +308,8 @@ ggplot(data=(nox_sox_non_OECD))+
   ylab("Millions of Tons")+
   geom_line(color="blue", mapping= aes(x= TIME , y= URBAN*(109052/13)), stat="identity")+
   theme(axis.title.y.right = element_text(color = "blue"),axis.text.y.right = element_text(color = "blue"))+
-  scale_y_continuous(name = expression("Millions of Tons"), sec.axis = sec_axis(~ . * 16/109052 ,name = "Urbanization %"),limits = c(37774,109052))
+  scale_y_continuous(labels=scales::comma,name = expression("Millions of Tons"), sec.axis = sec_axis(~ . * 16/109052 ,name = "Urbanization %"),limits = c(37774,109052))+
+  ggtitle("Emmissions by NON-OECD vs Urbanization")
 ```
 
 ![NOX and SOX emissions non OED vs Urbanization](https://github.com/MBWitz/DataSurfers/blob/master/Plots/nonOECD_plot2_new.png)
