@@ -1,3 +1,10 @@
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    ```{r warning=FALSE}
+    ```
+
 # Data Cleaning:
 # 1. Description of Data Source
  * Our primary data is a table from the Organisation for Economic Cooperation and Development (OECD). The table consists of 24,948 rows and 8 columns. The columns include Country, the type of pollutant being measured (Subject), the scale of measurement (Measure), the value of the measurement (Value), and the year it was taken (Time). It also includes undefined Flag Codes, Indicator, and Frequency columns.
